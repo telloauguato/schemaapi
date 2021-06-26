@@ -1,5 +1,11 @@
-
 export default (req, res) => {
-  res.statusCode = 200
-  res.json({ query: req.query })
+
+  const { router } = req.query
+
+  res
+    .status(200)
+    .json({
+      user: router[0],
+      schema: router[1]
+    })
 }
