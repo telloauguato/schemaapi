@@ -32,12 +32,16 @@ export default async (req, res) => {
 
     for (let j = 0; j < content.length; j++) {
 
-      const { key, type, suffix = '', prefix = '', options = [] } = content[j];
+      const { key, type, suffix = '', prefix = '', options = [], max = 1000, min = 0 } = content[j];
       var result
 
       switch (type) {
         case "name":
           result = { [key]: `${prefix}${person.name.first} ${person.name.last}${suffix}` }
+          break;
+
+        case "gender":
+          result = { [key]: `${prefix}${person.gender}${suffix}` }
           break;
 
         case "username":
@@ -82,6 +86,10 @@ export default async (req, res) => {
 
         case "avatar":
           result = { [key]: person.picture }
+          break;
+
+        case "int":
+          result = { [key]: Math.floor(Math.random() * (max - min + 1)) }
           break;
 
         default:
