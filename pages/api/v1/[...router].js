@@ -19,38 +19,75 @@ export default async (req, res) => {
   const url = `https://raw.githubusercontent.com/${user}/${repo}/main/${schema}.schema.json`
 
   const data = await getData(url)
-
-  const randomUser = await getData(`https://randomuser.me/api/?results=${data.amount}&nat=${data.lang ? data.lang : 'US'}`)
+  const { amount = 10, content = [] } = data
+  const randomUser = await getData(`https://randomuser.me/api/?results=${data.amount}${data.lang ? '&nat=' + data.lang : ''}`)
   datas.randonUser = randomUser.results
 
 
   let returns = []
 
-  for (let i = 0; i < data.amount; i++) {
+  for (let i = 0; i < amount; i++) {
 
+    const person = datas.randonUser[i]
 
+    for (let j = 0; j < content.length; j++) {
 
-    for (let j = 0; j < data.content.length; j++) {
-
-      const { key, type, suffix = '', prefix = '', options = [] } = data.content[j];
+      const { key, type, suffix = '', prefix = '', options = [] } = content[j];
       var result
 
       switch (type) {
         case "name":
-          result = { [key]: `${prefix}${datas.randonUser[i].name.first} ${datas.randonUser[i].name.last}${suffix}` }
+          result = { [key]: `${prefix}${person.name.first} ${person.name.last}${suffix}` }
           break;
 
         case "username":
-          result = { [key]: `${prefix}${datas.randonUser[i].login.username}${suffix}` }
+          result = { [key]: `${prefix}${person.login.username}${suffix}` }
           break;
 
         case "options":
           result = { [key]: `${prefix}${options[Math.floor(Math.random() * options.length)]}${suffix}` }
           break;
 
+        case "street":
+          result = { [key]: `${prefix}${person.location.street.name}, ${person.location.street.number}${suffix}` }
+          break;
+
+        case "city":
+          result = { [key]: `${prefix}${person.location.city}${suffix}` }
+          break;
+
+        case "state":
+          result = { [key]: `${prefix}${person.location.state}${suffix}` }
+          break;
+
+        case "country":
+          result = { [key]: `${prefix}${person.location.country}${suffix}` }
+          break;
+
+        case "address":
+          result = { [key]: `${prefix}${person.location.street.name}, ${person.location.street.number} - ${person.location.city}, ${person.location.state} - ${person.location.country}${suffix}` }
+          break;
+
+        case "email":
+          result = { [key]: `${prefix}${person.email}${suffix}` }
+          break;
+
+        case "phone":
+          result = { [key]: `${prefix}${person.phone}${suffix}` }
+          break;
+
+        case "cell":
+          result = { [key]: `${prefix}${person.cell}${suffix}` }
+          break;
+
+        case "avatar":
+          result = { [key]: person.picture }
+          break;
+
         default:
           break;
       }
+
       returns[i] = { ...returns[i], ...result }
     }
   }
