@@ -1,4 +1,3 @@
-
 async function getData(url) {
   return await fetch(url)
     .then(data => data.json())
@@ -17,8 +16,9 @@ export default async (req, res) => {
   const repo = split[0]
 
   router.shift()
+
   const schema = router.join('/')
-  const url = `https://raw.githubusercontent.com/${user}/${repo}/main/${schema}.schema.json`
+  const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
 
   const data = await getData(url)
   const { amount = 10, content = [] } = data
