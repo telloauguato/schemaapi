@@ -1,6 +1,6 @@
 # SchemaAPI
 
-## SchhemaAPI file to JSON data
+## SchemaAPI file to JSON data
 
 [SchemaAPI file: person.schema.json](https://raw.githubusercontent.com/telloauguato/schemaapi/master/examples/person.schema.json)
 ```https://raw.githubusercontent.com/telloauguato/schemaapi/master/examples/person.schema.json```
