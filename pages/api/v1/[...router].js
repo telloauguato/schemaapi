@@ -15,7 +15,10 @@ export default async (req, res) => {
 
   const user = split[1]
   const repo = split[0]
-  const schema = router[1]
+
+  router.shift()
+  //const schema = router.join('/')
+  const schema = router[0]
   const url = `https://raw.githubusercontent.com/${user}/${repo}/main/${schema}.schema.json`
 
   const data = await getData(url)
