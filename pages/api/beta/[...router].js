@@ -56,7 +56,6 @@ const gets = {
     const { location: { country } } = results[0]
     return `${prefix}${country}${suffix}`
   },
-  address: async props => { },
   email: async props => { },
   phone: async props => { },
   cell: async props => { },
@@ -64,26 +63,7 @@ const gets = {
 
 }
 
-/**
-  const { type, suffix = '', prefix = '', options = [], max = 1000, min = 0 } = props
-
-    case "street":
-      return `${prefix}${person.location.street.name}, ${person.location.street.number}${suffix}`
-      break;
-
-    case "city":
-      return `${prefix}${person.location.city}${suffix}`
-      break;
-
-    case "state":
-      return `${prefix}${person.location.state}${suffix}`
-      break;
-
-    case "country":
-      return `${prefix}${person.location.country}${suffix}`
-      break;
-
-    case "address":
+/**    case "address":
       return `${prefix}${person.location.street.name}, ${person.location.street.number} - ${person.location.city}, ${person.location.state} - ${person.location.country}${suffix}`
       break;
 
