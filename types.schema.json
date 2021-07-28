@@ -1,6 +1,5 @@
 {
     "name": "Types",
-    "amount": 10,
     "content": [
       { "key": "name", "type": "name" },
       { "key": "username", "type": "username", "prefix": "@" },
