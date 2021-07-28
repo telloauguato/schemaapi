@@ -8,7 +8,7 @@ export default function Home() {
         <title>Schema API</title>
         <link rel="icon" href="/favicon.svg" />
       </Head>
-
+      
       <main className={styles.main}>
         <h1 className={styles.title}>
           Schema API
