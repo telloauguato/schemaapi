@@ -1,6 +1,3 @@
-String.prototype.capitalize = function () {
-  return this.charAt(0).toUpperCase() + this.substr(1);
-}
 const gets = {
   data: async url => {
     return await fetch(url)
@@ -56,33 +53,31 @@ const gets = {
     const { location: { country } } = results[0]
     return `${prefix}${country}${suffix}`
   },
-  email: async props => { },
-  phone: async props => { },
-  cell: async props => { },
-  avatar: async props => { }
+  email: async props => {
+    const { suffix = '', prefix = '' } = props
+    const { results } = await gets.data('https://randomuser.me/api/?inc=email&noinfo')
+    const { email } = results[0]
+    return `${prefix}${email}${suffix}`
+  },
+  phone: async props => {
+    const { suffix = '', prefix = '' } = props
+    const { results } = await gets.data('https://randomuser.me/api/?inc=phone&noinfo')
+    const { phone } = results[0]
+    return `${prefix}${phone}${suffix}`
+  },
+  cell: async props => {
+    const { suffix = '', prefix = '' } = props
+    const { results } = await gets.data('https://randomuser.me/api/?inc=cell&noinfo')
+    const { cell } = results[0]
+    return `${prefix}${cell}${suffix}`
+  },
+  avatar: async props => { 
+    const { seed = 'schemaapi', sprites = 'human', background = 'ffffff' } = props    
+    return `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`
+  }
 
 }
 
-/**    case "address":
-      return `${prefix}${person.location.street.name}, ${person.location.street.number} - ${person.location.city}, ${person.location.state} - ${person.location.country}${suffix}`
-      break;
-
-    case "email":
-      return `${prefix}${person.email}${suffix}`
-      break;
-
-    case "phone":
-      return `${prefix}${person.phone}${suffix}`
-      break;
-
-    case "cell":
-      return `${prefix}${person.cell}${suffix}`
-      break;
-
-    case "avatar":
-      return person.picture
-      break;
- */
 export default async (req, res) => {
   const { router } = req.query
   const split = router[0].split("@")
