@@ -9,7 +9,6 @@
         "type": "options",
         "options": ["admin", "user", "anonymous"]
       },
-      { "key": "address", "type": "address" },
       { "key": "street", "type": "street" },
       { "key": "email", "type": "email" },
       { "key": "phone", "type": "phone" },
