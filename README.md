@@ -1,11 +1,30 @@
-# SchemaAPI
+# Schema API
 
-## SchemaAPI file to JSON data
+## What's this?
 
-[SchemaAPI file: person.schema.json](https://github.com/telloauguato/schemaapi/blob/master/examples/person.schema.json)
+_Schema API_ is a modular api, construct by a file json with a schema.
 
-```https://github.com/telloauguato/schemaapi/blob/master/examples/person.schema.json```
+We always use the keys by default: _name_ and _key_
 
-[Response data](https://schemaapi.vercel.app/api/v1/schemaapi@telloauguato/examples/person)
+## Body
 
-```https://schemaapi.vercel.app/api/v1/schemaapi@telloauguato/examples/person```
+The schema body requires the key _content_. This key will be responsible for building your API data. 
+
+## Types
+
+### Name
+
+```json
+{ 
+"type" : "name", 
+"key" : "name" 
+} 
+```
+
+This returns:
+
+```json
+{
+"name" : "Sherlock Holmes"
+}
+```
