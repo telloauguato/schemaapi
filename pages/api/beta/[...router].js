@@ -82,10 +82,15 @@ export default async (req, res) => {
 
   const data = await getData(url)
   const { length = 2, content = [] } = data
-  
+
+  content.forEach(e => {
+    const { key, type } = e
+    
+  });
+
   res
     .status(200)
     .json(
-     data
+      data
     )
 }
