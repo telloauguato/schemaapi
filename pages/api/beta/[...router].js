@@ -81,14 +81,11 @@ export default async (req, res) => {
   const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
 
   const data = await getData(url)
-  const { length = 1, content = [] } = data
-  const randomUser = await getData(`https://randomuser.me/api/?results=${data.amount}${data.lang ? '&nat=' + data.lang : ''}`)
-  //const { key, type, suffix = '', prefix = '', options = [], max = 1000, min = 0 } = content[j];
-
-
+  const { length = 2, content = [] } = data
+  
   res
     .status(200)
-    .json({
-      data
-    })
+    .json(
+     data
+    )
 }
