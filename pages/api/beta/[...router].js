@@ -77,7 +77,7 @@ const gets = {
   },
   schema: async props => { 
     const { user = 'telloauguato', repo = 'schemaapi', schema = 'types' } = props    
-    return await gets.data(`https://schemaapi.vercel.app/api/beta/${repo}@${user}/master/${schema}.schema.json`)
+    return await gets.data(`https://schemaapi.vercel.app/api/beta/${repo}@${user}/${schema}`)
   } 
 
 }
@@ -92,7 +92,7 @@ export default async (req, res) => {
   router.shift()
 
   const schema = router.join('/')
-  const url = `https://raw.githubusercontent.com/${user}/${repo}/${schema}`
+  const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
 
   const data = await gets.data(url)
   const { length = 1, content = [] } = data
