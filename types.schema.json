@@ -25,6 +25,13 @@
       "user": "telloauguato",
       "repo": "schemaapi",
       "schema": "outher"
+    },
+    {
+      "key": "listFriends",
+      "type": "schema",
+      "user": "telloauguato",
+      "repo": "schemaapi",
+      "schema": "friend"
     }
   ]
 }
