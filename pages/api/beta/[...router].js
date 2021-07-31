@@ -74,7 +74,11 @@ const gets = {
   avatar: async props => { 
     const { seed = 'schemaapi', sprites = 'human', background = 'ffffff' } = props    
     return `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`
-  }
+  },
+  schema: async props => { 
+    const { user = 'telloauguato', repo = 'schemaapi', schema = 'types' } = props    
+    return await gets.data(`https://schemaapi.vercel.app/api/beta/${repo}@${user}/master/${schema}.schema.json`)
+  } 
 
 }
 
