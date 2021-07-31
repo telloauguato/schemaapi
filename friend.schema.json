@@ -1,0 +1,17 @@
+{
+  "name": "Friend List",
+  "content": [
+    { "key": "name", "type": "name" },
+    {
+      "key": "username",
+      "type": "username",
+      "prefix": "http://www.fb.com/",
+      "suffix": "/freindship"
+    },
+    {
+      "key": "type",
+      "type": "int",
+      "suffix": " years"
+    }
+  ]
+}
