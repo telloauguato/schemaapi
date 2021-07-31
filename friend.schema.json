@@ -12,7 +12,9 @@
     {
       "key": "type",
       "type": "int",
-      "suffix": " years"
+      "suffix": " years",
+      "max": 10,
+      "min": 1
     }
   ]
 }
