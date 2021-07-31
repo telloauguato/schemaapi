@@ -95,7 +95,7 @@ export default async (req, res) => {
   const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
 
   const data = await gets.data(url)
-  const { length = 1, content = [] } = data
+  var { length = 1, content = [] } = data
   length = length < 1 ? 1 : length
   var result
 
