@@ -71,14 +71,14 @@ const gets = {
     const { cell } = results[0]
     return `${prefix}${cell}${suffix}`
   },
-  avatar: async props => { 
-    const { seed = 'schemaapi', sprites = 'human', background = 'ffffff' } = props    
+  avatar: async props => {
+    const { seed = 'schemaapi', sprites = 'human', background = 'ffffff' } = props
     return `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`
   },
-  schema: async props => { 
-    const { user = 'telloauguato', repo = 'schemaapi', schema = 'types' } = props    
+  schema: async props => {
+    const { user = 'telloauguato', repo = 'schemaapi', schema = 'types' } = props
     return await gets.data(`https://schemaapi.vercel.app/api/beta/${repo}@${user}/${schema}`)
-  } 
+  }
 
 }
 
@@ -96,13 +96,19 @@ export default async (req, res) => {
 
   const data = await gets.data(url)
   const { length = 1, content = [] } = data
-  var result = {}
-  for (let i = 0; i < content.length; i++) {
-    const e = content[i];
-    const { key, type } = e
-    result = { ...result, [key]: await gets[type](e) }
-  }
+  length = length < 1 ? 1 : length
+  var result
 
+  if (length === 1) {
+    result = {}
+    for (let i = 0; i < content.length; i++) {
+      const e = content[i];
+      const { key, type } = e
+      result = { ...result, [key]: await gets[type](e) }
+    }
+  } else {
+    result = {}
+  }
   res
     .status(200)
     .json(
