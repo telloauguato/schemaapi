@@ -17,7 +17,8 @@
       { "key": "city", "type": "city" },
       { "key": "state", "type": "state" },
       { "key": "country", "type": "country" },
-      { "key": "int", "type": "int", "min": 0, "max": 10 }
+      { "key": "int", "type": "int", "min": 0, "max": 10 },
+      { "key": "schema", "type": "schema", "user": "telloauguato", "repo": "schemaapi", "schema": "outher"}
     ]
   }
   
