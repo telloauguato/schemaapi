@@ -1,5 +1,6 @@
 {
   "name": "Friend List",
+  "length": 5,
   "content": [
     { "key": "name", "type": "name" },
     {
