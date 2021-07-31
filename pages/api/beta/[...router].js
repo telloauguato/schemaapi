@@ -92,7 +92,7 @@ export default async (req, res) => {
   router.shift()
 
   const schema = router.join('/')
-  const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
+  const url = `https://raw.githubusercontent.com/${user}/${repo}/${schema}`
 
   const data = await gets.data(url)
   const { length = 1, content = [] } = data

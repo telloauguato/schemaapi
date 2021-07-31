@@ -9,25 +9,9 @@
       "suffix": "/photos"
     },
     {
-      "key": "options",
+      "key": "type",
       "type": "options",
-      "options": ["admin", "user", "anonymous"]
-    },
-    { "key": "street", "type": "street" },
-    { "key": "email", "type": "email" },
-    { "key": "phone", "type": "phone" },
-    { "key": "cell", "type": "cell" },
-    { "key": "avatar", "type": "avatar" },
-    { "key": "city", "type": "city" },
-    { "key": "state", "type": "state" },
-    { "key": "country", "type": "country" },
-    { "key": "int", "type": "int", "min": 0, "max": 10 },
-    {
-      "key": "schema",
-      "type": "schema",
-      "user": "telloauguato",
-      "repo": "schemaapi",
-      "schema": "outher"
+      "options": ["public", "private", "protected"]
     }
   ]
 }
