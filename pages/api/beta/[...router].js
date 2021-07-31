@@ -107,7 +107,16 @@ export default async (req, res) => {
       result = { ...result, [key]: await gets[type](e) }
     }
   } else {
-    result = {}
+    result = []
+    for (let l = 0; l < length; l++) {
+      var temp = {}
+      for (let i = 0; i < content.length; i++) {
+        const e = content[i];
+        const { key, type } = e
+        temp = { ...temp, [key]: await gets[type](e) }
+      }
+      result.push(temp)
+    }
   }
   res
     .status(200)
