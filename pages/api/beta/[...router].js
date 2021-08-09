@@ -116,8 +116,7 @@ export default async (req, res) => {
         temp = { ...temp, [key]: await gets[type](e) }
       }
       result.push(temp)
-    }
-result = [... result] 
+   } result = [...result] 
   }
   res
     .status(200)
