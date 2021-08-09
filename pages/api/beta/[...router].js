@@ -117,6 +117,7 @@ export default async (req, res) => {
       }
       result.push(temp)
     }
+result = [... result] 
   }
   res
     .status(200)
