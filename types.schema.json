@@ -50,13 +50,6 @@
             "type": "int",
             "min": 0,
             "max": 10
-        },
-        {
-            "key": "schema",
-            "type": "schema",
-            "user": "telloauguato",
-            "repo": "schemaapi",
-            "schema": "level"
         }
     ]
 }
