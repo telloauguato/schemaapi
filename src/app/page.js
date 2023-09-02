@@ -6,7 +6,7 @@ export default function Home() {
       <header className="body-font text-gray-600">
         <div className="container mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row">
           <a className="title-font mb-4 flex cursor-pointer items-center font-medium text-gray-900 md:mb-0">
-            <span className="ml-3 text-5xl">Schema<span className="text-blue-600 dark:text-blue-500">API</span></span>
+            <span className="ml-3 text-2xl font-semibold">Schema<span className="text-blue-600 dark:text-blue-500">API</span></span>
           </a>
           <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto">
             <a className="mr-5 cursor-pointer hover:text-gray-900">Get started</a>
@@ -18,7 +18,7 @@ export default function Home() {
       <section className="body-font text-gray-600">
         <div className="container mx-auto flex flex-col items-center px-5 py-24 md:flex-row">
           <div className="mb-10 w-5/6 md:mb-0 md:w-1/2 lg:w-full lg:max-w-lg">
-            <Image className="rounded object-cover object-center" alt="hero" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
+            <Image className="rounded object-cover object-center" alt="hero" src="https://carbon.now.sh/26949131-87d1-4ed0-9528-9c0a83571e89" />
           </div>
           <div className="flex flex-col items-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24">
             <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">Practical and useful solution for generating realistic test data.</h1>
