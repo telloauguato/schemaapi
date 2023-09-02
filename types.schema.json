@@ -29,11 +29,6 @@
             "type": "email"
         },
         {
-            "key": "phone",
-            "type": "phone",
-            "pattern": "+55 XX 9XXXX-XXXX"
-        },
-        {
             "key": "city",
             "type": "city"
         },
