@@ -18,7 +18,7 @@ export default function Home() {
       <section className="body-font text-gray-600">
         <div className="container mx-auto flex flex-col items-center px-5 py-24 md:flex-row">
           <div className="mb-10 w-5/6 md:mb-0 md:w-1/2 lg:w-full lg:max-w-lg">
-            <img className="rounded object-cover object-center" alt="hero" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
+            <Image className="rounded object-cover object-center" alt="hero" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
           </div>
           <div className="flex flex-col items-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24">
             <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">Practical and useful solution for generating realistic test data.</h1>
@@ -55,7 +55,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-6 w-full overflow-hidden rounded-lg sm:mt-0 sm:w-1/3 lg:w-1/2">
-            <img className="h-full w-full object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="stats" />
+            <Image className="h-full w-full object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="stats" />
           </div>
         </div>
       </section>
@@ -134,7 +134,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <img className="mt-12 rounded-lg object-cover object-center md:mt-0 md:w-1/2 lg:w-3/5" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="step" />
+            <Image className="mt-12 rounded-lg object-cover object-center md:mt-0 md:w-1/2 lg:w-3/5" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="step" />
           </div>
         </div>
       </section>
@@ -143,7 +143,7 @@ export default function Home() {
           <div className="-m-4 flex flex-wrap">
             <div className="mb-6 p-4 lg:mb-0 lg:w-1/3">
               <div className="h-full text-center">
-                <img alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/302x302" />
+                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/302x302" />
                 <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
                 <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
                 <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">HOLDEN CAULFIELD</h2>
@@ -152,7 +152,7 @@ export default function Home() {
             </div>
             <div className="mb-6 p-4 lg:mb-0 lg:w-1/3">
               <div className="h-full text-center">
-                <img alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/300x300" />
+                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/300x300" />
                 <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
                 <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
                 <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">ALPER KAMU</h2>
@@ -161,7 +161,7 @@ export default function Home() {
             </div>
             <div className="p-4 lg:mb-0 lg:w-1/3">
               <div className="h-full text-center">
-                <img alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/305x305" />
+                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/305x305" />
                 <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
                 <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
                 <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">HENRY LETHAM</h2>
