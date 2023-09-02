@@ -1,8 +1,7 @@
 import Image from 'next/image'
 
 export default function Home() {
-  return 
- <div className="bg-gray-100 min-h-screen">
+  return (<div className="bg-gray-100 min-h-screen">
       {/* Cabeçalho */}
       <header className="bg-blue-500 py-4">
         <div className="container mx-auto">
@@ -40,5 +39,5 @@ export default function Home() {
           </form>
         </div>
       </section>
-    </div>
+    </div>) 
 }
