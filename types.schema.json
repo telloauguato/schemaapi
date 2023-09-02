@@ -12,6 +12,11 @@
             "prefix": "@"
         },
         {
+            "key": "phone",
+            "type": "phone",
+            "pattern": "+55 XX 9XXXX-XXXX"
+        },
+        {
             "key": "options",
             "type": "options",
             "options": [

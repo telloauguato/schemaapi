@@ -849,66 +849,40 @@ const gets = {
         return await fetch(url)
             .then(data => data.json())
     },
-    name: props => {
-        const { suffix = '', prefix = '' } = props
-        const first = defaults.names[Math.floor(Math.random() * defaults.names.length)]
-        const last = defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]
-        return `${prefix}${first} ${last}${suffix}`
+    name: ({ suffix = '', prefix = '' }) =>
+        `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
+    int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) =>
+        `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}`,
+    username: ({ suffix = '', prefix = '' }) => {
+        const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 });
+        return `${prefix}${username}${suffix}`;
     },
-    int: props => {
-        const { suffix = '', prefix = '', min = 1, max = 1000 } = props
-        return `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}`
+    options: ({ suffix = '', prefix = '', options = [] }) =>
+        `${prefix}${options[Math.floor(Math.random() * options.length)]}${suffix}`,
+    street: ({ suffix = '', prefix = '' }) => {
+        const street = defaults.streets[Math.floor(Math.random() * defaults.streets.length)];
+        const number = Math.floor(Math.random() * 10000);
+        return `${prefix}${street}, ${number}${suffix}`;
     },
-    username: props => {
-        const { suffix = '', prefix = '' } = props
-        const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 })
-        return `${prefix}${username}${suffix}`
+    city: ({ suffix = '', prefix = '' }) =>
+        `${prefix}${defaults.cities[Math.floor(Math.random() * defaults.cities.length)]}${suffix}`,
+    state: async ({ suffix = '', prefix = '' }) =>
+        `${prefix}${defaults.states[Math.floor(Math.random() * defaults.states.length)]}${suffix}`,
+    country: ({ suffix = '', prefix = '' }) =>
+        `${prefix}${defaults.countries[Math.floor(Math.random() * defaults.countries.length)]}${suffix}`,
+    email: ({ suffix = '', prefix = '', domain = 'schema.api' }) => {
+        const user = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)];
+        const email = `${user}_${Math.floor(Math.random() * 10000)}@${domain}`;
+        return `${prefix}${email}${suffix}`;
     },
-    options: props => {
-        const { suffix = '', prefix = '', options = [] } = props
-        return `${prefix}${options[Math.floor(Math.random() * options.length)]}${suffix}`
+    phone: ({ suffix = '', prefix = '', pattern = '000-000-0000' }) => {
+        const phone = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
+        return `${prefix}${phone}${suffix}`;
     },
-    street: props => {
-        const { suffix = '', prefix = '' } = props
-        const street = defaults.streets[Math.floor(Math.random() * defaults.streets.length)]
-        const number = Math.floor(Math.random() * 10000)
-        return `${prefix}${street}, ${number}${suffix}`
-    },
-    city: props => {
-        const { suffix = '', prefix = '' } = props
-        const city = defaults.cities[Math.floor(Math.random() * defaults.cities.length)]
-        return `${prefix}${city}${suffix}`
-    },
-    state: async props => {
-        const { suffix = '', prefix = '' } = props
-        const state = defaults.states[Math.floor(Math.random() * defaults.states.length)]
-        return `${prefix}${state}${suffix}`
-    },
-    country: props => {
-        const { suffix = '', prefix = '' } = props
-        const country = defaults.countries[Math.floor(Math.random() * defaults.countries.length)]
-        return `${prefix}${country}${suffix}`
-    },
-    email: props => {
-        const { suffix = '', prefix = '' } = props
-        const user = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)]
-        const email = `${user}${Math.floor(Math.random() * 10000)}@schemaapi.vercel.app`
-        return `${prefix}${email}${suffix}`
-    },
-    phone: props => {
-        const { suffix = '', prefix = '', pattern = '000-000-0000' } = props
-        const phone = pattern.replace(/X/g, () => Math.floor(Math.random() * 10))
-        return `${prefix}${phone}${suffix}`
-    },
-    avatar: async props => {
-        const { seed = 'schemaapi', sprites = 'human', background = 'ffffff' } = props
-        return `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`
-    },
-    schema: async props => {
-        const { user = 'telloauguato', repo = 'schemaapi', schema = 'types' } = props
-        return await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
-    }
-
+    avatar: async ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
+        `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
+    schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types' }) =>
+        await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
 }
 
 export default async (req, res) => {
