@@ -1,0 +1,15 @@
+{
+    "name": "Level",
+    "length": 1,
+    "content": [
+        {
+            "key": "options",
+            "type": "options",
+            "options": [
+                "admin",
+                "user",
+                "anonymous"
+            ]
+        }
+    ]
+}
