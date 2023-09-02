@@ -1,3 +1,5 @@
+import defaults from "../datas.json";
+
 const gets = {
   data: async url => {
     return await fetch(url)
@@ -5,8 +7,8 @@ const gets = {
   },
   name: async props => {
     const { suffix = '', prefix = '' } = props
-    const { results } = await gets.data('https://randomuser.me/api/?inc=name&noinfo')
-    const { name: { first, last } } = results[0]
+    const first = defaults.names[Math.floor(Math.random() * defaults.names.length)]
+    const last = defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]
     return `${prefix}${first} ${last}${suffix}`
   },
   int: async props => {
@@ -116,7 +118,7 @@ export default async (req, res) => {
         temp = { ...temp, [key]: await gets[type](e) }
       }
       result.push(temp)
-   } result = Object.values(result) 
+    } result = Object.values(result)
   }
   res
     .status(200)
