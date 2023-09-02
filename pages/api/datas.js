@@ -1,4 +1,4 @@
-{
+export default {
     "names": [
         "João",
         "Pedro",

@@ -1,4 +1,4 @@
-import defaults from "../datas.json";
+import defaults from "../datas";
 
 const gets = {
   data: async url => {
