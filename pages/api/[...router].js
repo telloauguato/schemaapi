@@ -903,9 +903,9 @@ export default async (req, res) => {
         }, {})
     } else {
         result = Array.from({ length }, () =>
-            content.reduce(async (acc, e) => {
+            content.reduce((acc, e) => {
                 const { key, type } = e;
-                return { ...acc, [key]: await gets[type](e) };
+                return { ...acc, [key]: gets[type](e) };
             }, {})
         )
     }
