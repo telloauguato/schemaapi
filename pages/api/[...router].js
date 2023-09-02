@@ -912,11 +912,9 @@ const gets = {
 }
 
 export default async (req, res) => {
-    const { router } = req.query
-    const split = router[0].split("@")
-
-    const user = split[1]
-    const repo = split[0]
+    const { router } = req.query;
+    const split = router[0].split("@");
+    const [user, repo] = split.reverse();
 
     router.shift()
 
@@ -929,29 +927,18 @@ export default async (req, res) => {
     var result
 
     if (length === 1) {
-        result = {}
-        for (let i = 0; i < content.length; i++) {
-            const e = content[i];
-            const { key, type } = e
-            result = { ...result, [key]: gets[type](e) }
-        }
+        result = content.reduce((acc, e) => {
+            const { key, type } = e;
+            return { ...acc, [key]: gets[type](e) };
+        }, {})
     } else {
-        result = []
-        for (let l = 0; l < length; l++) {
-            var temp = {}
-            for (let i = 0; i < content.length; i++) {
-                const e = content[i];
-                const { key, type } = e
-                temp = { ...temp, [key]: gets[type](e) }
-            }
-            result.push(temp)
-        }
-        result = Object.values(result)
+        result = Array.from({ length }, () =>
+            content.reduce((acc, e) => {
+                const { key, type } = e;
+                return { ...acc, [key]: gets[type](e) };
+            }, {})
+        )
     }
 
-    res
-        .status(200)
-        .json(
-            { ...result }
-        )
+    res.status(200).json(result);
 }
