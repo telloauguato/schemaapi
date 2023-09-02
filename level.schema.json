@@ -3,7 +3,7 @@
     "length": 20,
     "content": [
         {
-            "key": "´level",
+            "key": "level",
             "type": "options",
             "options": [
                 "admin",
