@@ -844,101 +844,80 @@ const defaults = {
     ]
 }
 
-const gets = {
-    data: async url => {
-        return await fetch(url)
-            .then(data => data.json())
+const fetchJSON = async (url) => {
+    const response = await fetch(url);
+    return await response.json();
+  };
+  
+  const getRandomItem = (array) => array[Math.floor(Math.random() * array.length)];
+  
+  const gets = {
+    data: fetchJSON,
+    name: ({ suffix = '', prefix = '' }) =>
+      `${prefix}${getRandomItem(defaults.names)} ${getRandomItem(defaults.surinames)}${suffix}`,
+    int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) =>
+      `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}`,
+    username: ({ suffix = '', prefix = '' }) => {
+      const username = getRandomItem(defaults.userfix) + gets.int({ max: 100000, min: 9999 });
+      return `${prefix}${username}${suffix}`;
     },
-    name: props => {
-        const { suffix = '', prefix = '' } = props
-        const first = defaults.names[Math.floor(Math.random() * defaults.names.length)]
-        const last = defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]
-        return `${prefix}${first} ${last}${suffix}`
+    options: ({ suffix = '', prefix = '', options = [] }) =>
+      `${prefix}${getRandomItem(options)}${suffix}`,
+    street: ({ suffix = '', prefix = '' }) => {
+      const street = getRandomItem(defaults.streets);
+      const number = Math.floor(Math.random() * 10000);
+      return `${prefix}${street}, ${number}${suffix}`;
     },
-    int: props => {
-        const { suffix = '', prefix = '', min = 1, max = 1000 } = props
-        return `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}`
+    city: ({ suffix = '', prefix = '' }) =>
+      `${prefix}${getRandomItem(defaults.cities)}${suffix}`,
+    state: async ({ suffix = '', prefix = '' }) =>
+      `${prefix}${getRandomItem(defaults.states)}${suffix}`,
+    country: ({ suffix = '', prefix = '' }) =>
+      `${prefix}${getRandomItem(defaults.countries)}${suffix}`,
+    email: ({ suffix = '', prefix = '' }) => {
+      const user = getRandomItem(defaults.userfix);
+      const email = `${user}${Math.floor(Math.random() * 10000)}@schemaapi.vercel.app`;
+      return `${prefix}${email}${suffix}`;
     },
-    username: props => {
-        const { suffix = '', prefix = '' } = props
-        const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 })
-        return `${prefix}${username}${suffix}`
+    phone: ({ suffix = '', prefix = '', pattern = '000-000-0000' }) => {
+      const phone = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
+      return `${prefix}${phone}${suffix}`;
     },
-    options: props => {
-        const { suffix = '', prefix = '', options = [] } = props
-        return `${prefix}${options[Math.floor(Math.random() * options.length)]}${suffix}`
-    },
-    street: props => {
-        const { suffix = '', prefix = '' } = props
-        const street = defaults.streets[Math.floor(Math.random() * defaults.streets.length)]
-        const number = Math.floor(Math.random() * 1000 + 372)
-        return `${prefix}${street}, ${number}${suffix}`
-    },
-    city: props => {
-        const { suffix = '', prefix = '' } = props
-        const city = defaults.cities[Math.floor(Math.random() * defaults.cities.length)]
-        return `${prefix}${city}${suffix}`
-    },
-    state: async props => {
-        const { suffix = '', prefix = '' } = props
-        const state = defaults.states[Math.floor(Math.random() * defaults.states.length)]
-        return `${prefix}${state}${suffix}`
-    },
-    country: props => {
-        const { suffix = '', prefix = '' } = props
-        const country = defaults.countries[Math.floor(Math.random() * defaults.countries.length)]
-        return `${prefix}${country}${suffix}`
-    },
-    email: props => {
-        const { suffix = '', prefix = '' } = props
-        const user = gets.name()
-        const email = `${user}${gets.int({ min: 326, max: 987 })}@schemaapi.vercel.app`
-        return `${prefix}${email}${suffix}`
-    },
-    phone: props => {
-        const { suffix = '', prefix = '', pattern = '000-000-0000' } = props
-        const phone = pattern.replace(/X/g, () => Math.floor(Math.random() * 10))
-        return `${prefix}${phone}${suffix}`
-    },
-    avatar: async props => {
-        const { seed = 'schemaapi', sprites = 'human', background = 'ffffff' } = props
-        return `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`
-    },
-    schema: async props => {
-        const { user = 'telloauguato', repo = 'schemaapi', schema = 'types' } = props
-        return await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
-    }
-
-}
-
-export default async (req, res) => {
+    avatar: async ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
+      `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
+    schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types' }) =>
+      await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`),
+  };
+  
+  export default async (req, res) => {
     const { router } = req.query;
     const split = router[0].split("@");
     const [user, repo] = split.reverse();
-
+  
     router.shift()
-
+  
     const schema = router.join('/')
     const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
-
-    const data = await gets.data(url)
-    var { length = 1, content = [] } = data
-    length = (length < 1) ? 1 : length
-    var result
-
+  
+    const data = await gets.data(url);
+    let { length = 1, content = [] } = data;
+    length = (length < 1) ? 1 : length;
+    let result;
+  
     if (length === 1) {
-        result = content.reduce((acc, e) => {
-            const { key, type } = e;
-            return { ...acc, [key]: gets[type](e) };
-        }, {})
+      result = content.reduce((acc, e) => {
+        const { key, type } = e;
+        return { ...acc, [key]: gets[type](e) };
+      }, {})
     } else {
-        result = Array.from({ length }, () =>
-            content.reduce((acc, e) => {
-                const { key, type } = e;
-                return { ...acc, [key]: gets[type](e) };
-            }, {})
-        )
+      result = Array.from({ length }, async () =>
+        content.reduce(async (acc, e) => {
+          const { key, type } = e;
+          return { ...await acc, [key]: await gets[type](e) };
+        }, {})
+      )
     }
-
+  
     res.status(200).json(result);
-}
+  }
+  
