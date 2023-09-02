@@ -6,7 +6,7 @@ export default function Home() {
       <header className="body-font text-gray-600">
         <div className="container mx-auto flex flex-col flex-wrap items-center p-5 md:flex-row">
           <a className="title-font mb-4 flex cursor-pointer items-center font-medium text-gray-900 md:mb-0">
-            <span className="ml-3 text-xl">Schema<span className="text-blue-600 dark:text-blue-500">API</span></span>
+            <span className="ml-3 text-5xl">Schema<span className="text-blue-600 dark:text-blue-500">API</span></span>
           </a>
           <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto">
             <a className="mr-5 cursor-pointer hover:text-gray-900">Get started</a>
@@ -114,7 +114,7 @@ export default function Home() {
           <div className="-m-4 flex flex-wrap">
             <div className="mb-6 p-4 lg:mb-0 lg:w-1/3">
               <div className="h-full text-center">
-                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/302x302" />
+                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
                 <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90s cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
                 <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
                 <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">HOLDEN CAULFIELD</h2>
@@ -123,7 +123,7 @@ export default function Home() {
             </div>
             <div className="mb-6 p-4 lg:mb-0 lg:w-1/3">
               <div className="h-full text-center">
-                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/300x300" />
+                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
                 <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90s cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
                 <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
                 <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">ALPER KAMU</h2>
@@ -132,7 +132,7 @@ export default function Home() {
             </div>
             <div className="p-4 lg:mb-0 lg:w-1/3">
               <div className="h-full text-center">
-                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://dummyimage.com/305x305" />
+                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
                 <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90s cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
                 <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
                 <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">HENRY LETHAM</h2>
