@@ -55,7 +55,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-6 w-full overflow-hidden rounded-lg sm:mt-0 sm:w-1/3 lg:w-1/2">
-            <img className="h-full w-full object-cover object-center" src="https://dummyimage.com/600x300" alt="stats" />
+            <img className="h-full w-full object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="stats" />
           </div>
         </div>
       </section>
@@ -134,7 +134,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <img className="mt-12 rounded-lg object-cover object-center md:mt-0 md:w-1/2 lg:w-3/5" src="https://dummyimage.com/1200x500" alt="step" />
+            <img className="mt-12 rounded-lg object-cover object-center md:mt-0 md:w-1/2 lg:w-3/5" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="step" />
           </div>
         </div>
       </section>
