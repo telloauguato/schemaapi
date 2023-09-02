@@ -3,8 +3,7 @@
   "length": 2,
   "content": [
     { "key": "name", "type": "name" },
-    { "key": "username", "type": "username", "prefix": "@" },
-    { "key": "gender", "type": "gender" },
+    { "key": "username", "type": "username", "prefix": "@" },0,
     {
       "key": "options",
       "type": "options",
