@@ -866,7 +866,7 @@ const gets = {
     },
     city: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.cities[Math.floor(Math.random() * defaults.cities.length)]}${suffix}`,
-    state: async ({ suffix = '', prefix = '' }) =>
+    state: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.states[Math.floor(Math.random() * defaults.states.length)]}${suffix}`,
     country: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.countries[Math.floor(Math.random() * defaults.countries.length)]}${suffix}`,
