@@ -845,6 +845,10 @@ const defaults = {
 }
 
 const gets = {
+    data: async url => {
+        return await fetch(url)
+            .then(data => data.json())
+    },
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
     int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) =>
@@ -872,9 +876,13 @@ const gets = {
         return `${prefix}${email}${suffix}`;
     },
     pattern: ({ suffix = '', prefix = '', pattern = '000-000-0000' }) => {
-        const phone = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
-        return `${prefix}${phone}${suffix}`;
-    }
+        const result = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
+        return `${prefix}${result}${suffix}`;
+    },
+    avatar: ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
+        `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
+    schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types' }) =>
+        await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
 }
 
 export default async (req, res) => {
