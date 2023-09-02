@@ -898,21 +898,17 @@ export default async (req, res) => {
     const data = await gets.data(url)
     var { length = 1, content = [] } = data
     length = (length < 1) ? 1 : length
-    var result
-
-    if (length === 1) {
-        result = await content.reduce(async (acc, e) => {
+    const result = (length === 1) ?
+        await content.reduce(async (acc, e) => {
             const { key, type } = e;
             return { ...acc, [key]: await gets[type](e) };
-        }, {})
-    } else {
-        result = await Array.from({ length }, () =>
+        }, {}) :
+        await Array.from({ length }, () =>
             content.reduce(async (acc, e) => {
                 const { key, type } = e;
                 return { ...acc, [key]: await gets[type](e) };
             }, {})
         )
-    }
 
     res.status(200).json(result);
 }
