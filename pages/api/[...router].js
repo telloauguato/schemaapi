@@ -950,7 +950,7 @@ const defaults = {
     res
       .status(200)
       .json(
-        { ...result, router }
+        { ...result }
       )
   }
   
