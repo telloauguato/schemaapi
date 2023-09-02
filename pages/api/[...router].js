@@ -901,12 +901,12 @@ export default async (req, res) => {
     const result = (length === 1) ?
         await content.reduce(async (acc, e) => {
             const { key, type } = e;
-            return { ...acc, [key]: await gets[type](e) };
+            return { ...acc, [key]: type === "schema" ? await gets[type](e) : gets[type](e) };
         }, {}) :
         Array.from({ length }, () =>
             content.reduce(async (acc, e) => {
                 const { key, type } = e;
-                return { ...acc, [key]: await gets[type](e) };
+                return { ...acc, [key]: type === "schema" ? await gets[type](e) : gets[type](e) };
             }, {})
         )
 
