@@ -18,7 +18,7 @@ export default function Home() {
       <section className="body-font text-gray-600">
         <div className="container mx-auto flex flex-col items-center px-5 py-24 md:flex-row">
           <div className="mb-10 w-5/6 md:mb-0 md:w-1/2 lg:w-full lg:max-w-lg">
-            <Image className="rounded object-cover object-center" alt="hero" src="Users.schema.png" />
+            <Image className="rounded object-cover object-center" alt="hero" src="/Users.schema.png" />
           </div>
           <div className="flex flex-col items-center text-center md:w-1/2 md:items-start md:pl-16 md:text-left lg:flex-grow lg:pl-24">
             <h1 className="title-font mb-4 text-3xl font-medium text-gray-900 sm:text-4xl">Practical and useful solution for generating realistic test data.</h1>
