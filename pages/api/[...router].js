@@ -903,7 +903,7 @@ export default async (req, res) => {
             const { key, type } = e;
             return { ...acc, [key]: await gets[type](e) };
         }, {}) :
-        await Array.from({ length }, () =>
+        Array.from({ length }, () =>
             content.reduce(async (acc, e) => {
                 const { key, type } = e;
                 return { ...acc, [key]: await gets[type](e) };
