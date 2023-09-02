@@ -871,14 +871,10 @@ const gets = {
         const email = `${user}_${Math.floor(Math.random() * 10000)}@${domain}`;
         return `${prefix}${email}${suffix}`;
     },
-    phone: ({ suffix = '', prefix = '', pattern = '000-000-0000' }) => {
+    pattern: ({ suffix = '', prefix = '', pattern = '000-000-0000' }) => {
         const phone = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
         return `${prefix}${phone}${suffix}`;
-    },
-    avatar: ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
-        `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
-    schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types' }) =>
-        await fetch(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`).then(data => data.json())
+    }
 }
 
 export default async (req, res) => {

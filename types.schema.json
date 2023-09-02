@@ -12,8 +12,8 @@
             "prefix": "@"
         },
         {
-            "key": "phone",
-            "type": "phone",
+            "key": "pattern",
+            "type": "pattern",
             "pattern": "+55 XX 9XXXX-XXXX"
         },
         {
