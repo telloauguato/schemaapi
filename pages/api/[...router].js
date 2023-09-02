@@ -947,6 +947,7 @@ const defaults = {
         result.push(temp)
       } result = Object.values(result)
     }
+    
     res
       .status(200)
       .json(

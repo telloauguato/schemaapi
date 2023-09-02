@@ -34,10 +34,6 @@
             "pattern": "+55 XX 9XXXX-XXXX"
         },
         {
-            "key": "avatar",
-            "type": "avatar"
-        },
-        {
             "key": "city",
             "type": "city"
         },
