@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import userPic from './Users.schema.png'
 
 export default function Home() {
   return (
