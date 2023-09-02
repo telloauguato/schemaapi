@@ -845,10 +845,6 @@ const defaults = {
 }
 
 const gets = {
-    data: async url => {
-        return await fetch(url)
-            .then(data => data.json())
-    },
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
     int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) =>
@@ -879,10 +875,10 @@ const gets = {
         const phone = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
         return `${prefix}${phone}${suffix}`;
     },
-    avatar: async ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
+    avatar: ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
         `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
     schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types' }) =>
-        await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
+        await fetch(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`).then(data => data.json())
 }
 
 export default async (req, res) => {
@@ -907,9 +903,9 @@ export default async (req, res) => {
         }, {})
     } else {
         result = Array.from({ length }, () =>
-            content.reduce((acc, e) => {
+            content.reduce(async (acc, e) => {
                 const { key, type } = e;
-                return { ...acc, [key]: gets[type](e) };
+                return { ...acc, [key]: await gets[type](e) };
             }, {})
         )
     }
