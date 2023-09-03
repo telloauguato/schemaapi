@@ -848,7 +848,7 @@ const gets = {
     data: async url => {
         return await fetch(url)
             .then(data => data.json())
-            .catch((error) => {error})
+            .catch((error) => {e: error})
     },
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
@@ -910,9 +910,9 @@ export default async (req, res) => {
     const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
 
     const data = await gets.data(url)
-    var { length = 1, content = [], error } = data
-    if(error){ 
-        res.status(200).json(error)
+    var { length = 1, content = [], e } = data
+    if(e){ 
+        res.status(200).json(e)
         return
     }
     if (length < 0) {
