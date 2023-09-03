@@ -852,6 +852,8 @@ const gets = {
     },
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
+    value: ({ suffix = '', prefix = '', value = '' }) =>
+        `${prefix}${value}${suffix}`,
     int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) => suffix !== '' && prefix !== '' ?
         `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}` : Math.floor(Math.random() * (max - min + 1)),
     username: ({ suffix = '', prefix = '' }) => {
@@ -929,6 +931,7 @@ export default async (req, res) => {
         repo,
         file: `${schema}.schema.json`,
         createdAt: new Date().toJSON(),
+        length,
         data: result
     });
 }
