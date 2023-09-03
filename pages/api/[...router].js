@@ -851,8 +851,8 @@ const gets = {
     },
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
-    int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) =>
-        `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}`,
+    int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) => suffix !== '' && prefix !== '' ?
+        `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}` : Math.floor(Math.random() * (max - min + 1)),
     username: ({ suffix = '', prefix = '' }) => {
         const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 });
         return `${prefix}${username}${suffix}`;
@@ -880,8 +880,20 @@ const gets = {
     },
     avatar: ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
         `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
-    schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types' }) =>
-        await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
+    schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types', content = [], length = 1 }) =>
+        content !== []
+            ? (length === 1)
+                ? await content.reduce((acc, e) => {
+                    const { key, type } = e;
+                    return { ...acc, [key]: gets[type](e) };
+                }, {})
+                : Array.from({ length }, () =>
+                    content.reduce((acc, e) => {
+                        const { key, type } = e;
+                        return { ...acc, [key]: gets[type](e) };
+                    }, {})
+                )
+            : await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
 }
 
 export default async (req, res) => {

@@ -52,11 +52,27 @@
             "max": 10
         },
         {
-            "key": "schema",
+            "key": "schemaExternal",
             "type": "schema",
             "user": "telloauguato",
             "repo": "schemaapi",
             "schema": "level"
+        },
+        {
+            "key": "schemaInternal",
+            "type": "schema",
+            "content": [
+                {
+                    "key": "name",
+                    "type": "name"
+                },
+                {
+                    "key": "email",
+                    "type": "email",
+                    "prefix": "internal.",
+                    "domain": "schema.api"
+                }
+            ]
         }
     ]
 }
