@@ -880,20 +880,17 @@ const gets = {
     },
     avatar: ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
         `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
-    schema: async ({ user = 'telloauguato', repo = 'schemaapi', schema = 'types', content = [], length = 1 }) =>
-        content !== []
-            ? (length === 1)
-                ? await content.reduce((acc, e) => {
-                    const { key, type } = e;
-                    return { ...acc, [key]: gets[type](e) };
-                }, {})
-                : Array.from({ length }, () =>
-                    content.reduce((acc, e) => {
-                        const { key, type } = e;
-                        return { ...acc, [key]: gets[type](e) };
-                    }, {})
-                )
-            : await gets.data(`https://schemaapi.vercel.app/api/${repo}@${user}/${schema}`)
+    schema: async ({ content = [], length = 1 }) => (length === 1)
+        ? await content.reduce((acc, e) => {
+            const { key, type } = e;
+            return { ...acc, [key]: gets[type](e) };
+        }, {})
+        : Array.from({ length }, () =>
+            content.reduce((acc, e) => {
+                const { key, type } = e;
+                return { ...acc, [key]: gets[type](e) };
+            }, {})
+        )
 }
 
 export default async (req, res) => {
