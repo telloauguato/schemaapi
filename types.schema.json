@@ -48,8 +48,8 @@
         {
             "key": "int",
             "type": "int",
-            "min": 0,
-            "max": 10
+            "min": 1970,
+            "max": 2023
         },
         {
             "key": "schema",
