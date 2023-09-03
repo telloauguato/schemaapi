@@ -857,8 +857,7 @@ const gets = {
         const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 });
         return `${prefix}${username}${suffix}`;
     },
-    options: ({ suffix = '', prefix = '', options = [] }) =>
-        `${prefix}${options[Math.floor(Math.random() * options.length)]}${suffix}`,
+    options: ({ suffix = '', prefix = '', options = [] }) => suffix !== '' && prefix !== '' ? `${prefix}${options[Math.floor(Math.random() * options.length)]}${suffix}` : options[Math.floor(Math.random() * options.length)],
     street: ({ suffix = '', prefix = '' }) => {
         const street = defaults.streets[Math.floor(Math.random() * defaults.streets.length)];
         const number = Math.floor(Math.random() * 10000);
