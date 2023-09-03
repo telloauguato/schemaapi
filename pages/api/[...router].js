@@ -880,17 +880,22 @@ const gets = {
     },
     avatar: ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
         `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
-    schema: ({ content = [], length = 1 }) => (length === 1)
-        ? content.reduce((acc, e) => {
-            const { key, type } = e;
-            return { ...acc, [key]: gets[type](e) };
-        }, {})
-        : Array.from({ length }, () =>
-            content.reduce((acc, e) => {
+    schema: ({ content = [], length = 1 }) => {
+        if (length < 0) {
+            length = Math.floor(Math.random() * Math.abs(length) + 1)
+        }
+        return (length === 1)
+            ? content.reduce((acc, e) => {
                 const { key, type } = e;
                 return { ...acc, [key]: gets[type](e) };
             }, {})
-        )
+            : Array.from({ length }, () =>
+                content.reduce((acc, e) => {
+                    const { key, type } = e;
+                    return { ...acc, [key]: gets[type](e) };
+                }, {})
+            )
+    }
 }
 
 export default async (req, res) => {

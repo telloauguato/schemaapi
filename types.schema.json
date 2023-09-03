@@ -54,7 +54,7 @@
         {
             "key": "schema",
             "type": "schema",
-            "length": 2,
+            "length": -10,
             "content": [
                 {
                     "key": "name",
