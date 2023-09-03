@@ -1,3 +1,23 @@
 # Get Started
 
-This
+```json showLineNumbers copy filename="user.schema.json"
+{
+    "name": "User",
+    "length": 15,
+    "content": [
+        {
+            "key": "username",
+            "type": "username",
+            "prefix": "@"
+        },
+        {
+            "key": "status",
+            "type": "options",
+            "options": [
+                true,
+                false
+            ]
+        }
+    ]
+}
+```
