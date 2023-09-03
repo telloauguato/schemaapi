@@ -874,7 +874,7 @@ const gets = {
         const email = `${user}_${Math.floor(Math.random() * 10000)}@${domain}`;
         return `${prefix}${email}${suffix}`;
     },
-    pattern: ({ suffix = '', prefix = '', pattern = '000-000-0000' }) => {
+    pattern: ({ suffix = '', prefix = '', pattern = 'XXX-XXX-XXXX' }) => {
         const result = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
         return `${prefix}${result}${suffix}`;
     },
