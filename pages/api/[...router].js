@@ -930,5 +930,9 @@ export default async (req, res) => {
             }, {})
         )
 
-    res.status(200).json(result);
+    res.status(200).json({
+        user,
+        repo,
+        data: result
+    });
 }
