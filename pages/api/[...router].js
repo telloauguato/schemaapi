@@ -910,7 +910,9 @@ export default async (req, res) => {
 
     const data = await gets.data(url)
     var { length = 1, content = [] } = data
-    length = (length < 1) ? 1 : length
+    if (length < 0) {
+        length = Math.floor(Math.random() * Math.abs(length) + 1)
+    }
     const result = (length === 1) ?
         await content.reduce((acc, e) => {
             const { key, type } = e;
