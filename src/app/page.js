@@ -13,7 +13,7 @@ export default function Home() {
           <nav className="flex flex-wrap items-center justify-center text-base md:ml-auto">
             <a className="mr-5 cursor-pointer hover:text-gray-900">Get started</a>
             <a className="mr-5 cursor-pointer hover:text-gray-900">Types</a>
-            <a className="mr-5 cursor-pointer hover:text-gray-900">Github</a>
+            <a href='https://github.com/telloauguato/schemaapi' className="mr-5 cursor-pointer hover:text-gray-900">Github</a>
           </nav>
         </div>
       </header>
@@ -111,39 +111,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="body-font text-gray-600">
-        <div className="container mx-auto px-5 py-24">
-          <div className="-m-4 flex flex-wrap">
-            <div className="mb-6 p-4 lg:mb-0 lg:w-1/3">
-              <div className="h-full text-center">
-                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
-                <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90s cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
-                <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">HOLDEN CAULFIELD</h2>
-                <p className="text-gray-500">Senior Product Designer</p>
-              </div>
-            </div>
-            <div className="mb-6 p-4 lg:mb-0 lg:w-1/3">
-              <div className="h-full text-center">
-                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
-                <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90s cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
-                <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">ALPER KAMU</h2>
-                <p className="text-gray-500">UI Develeoper</p>
-              </div>
-            </div>
-            <div className="p-4 lg:mb-0 lg:w-1/3">
-              <div className="h-full text-center">
-                <Image alt="testimonial" className="mb-8 inline-block h-20 w-20 rounded-full border-2 border-gray-200 bg-gray-100 object-cover object-center" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" />
-                <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90s cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
-                <span className="mb-4 mt-6 inline-block h-1 w-10 rounded bg-indigo-500"></span>
-                <h2 className="title-font text-sm font-medium tracking-wider text-gray-900">HENRY LETHAM</h2>
-                <p className="text-gray-500">CTO</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <footer className="body-font text-gray-600">
         <div className="container mx-auto flex flex-col items-center px-5 py-8 sm:flex-row">
           <a className="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
@@ -151,32 +118,8 @@ export default function Home() {
           </a>
           <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
             © 2023 SchemaAPI —
-            <a href="https://twitter.com/knyttneve" className="ml-1 text-gray-600" rel="noopener noreferrer" target="_blank">@knyttneve</a>
+            <a href="https://github.com/telloauguato" className="ml-1 text-gray-600" rel="noopener noreferrer" target="_blank">@telloauguato</a>
           </p>
-          <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
-            <a className="text-gray-500">
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="h-5 w-5" viewBox="0 0 24 24">
-                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="h-5 w-5" viewBox="0 0 24 24">
-                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="h-5 w-5" viewBox="0 0 24 24">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-              </svg>
-            </a>
-            <a className="ml-3 text-gray-500">
-              <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" className="h-5 w-5" viewBox="0 0 24 24">
-                <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-                <circle cx="4" cy="4" r="2" stroke="none"></circle>
-              </svg>
-            </a>
-          </span>
         </div>
       </footer>
     </>
