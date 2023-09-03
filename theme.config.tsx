@@ -5,39 +5,40 @@ import { useRouter } from 'next/router'
 const config: DocsThemeConfig = {
   logo: <span>Manual McD</span>,
   project: {
-    link: 'https://github.com/telloauguato/manualmcd',
+    link: 'https://github.com/telloauguato/schemaapi',
   },
-  docsRepositoryBase: 'https://github.com/telloauguato/manualmcd',
+  docsRepositoryBase: 'https://github.com/telloauguato/schemaapi',
   footer: {
-    text: `Manual McD ${new Date().getFullYear()} — by @telloauguato`,
+    text: `SchemaAPI ${new Date().getFullYear()} — by @telloauguato`,
   },
   useNextSeoProps() {
     return {
-      titleTemplate: '%s – Manual McD'
+      titleTemplate: '%s – SchemaAPI'
     }
   },
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter()
     const { frontMatter } = useConfig()
     const url =
-      'https://manualmcd.vercel.app' +
+      'https://schemaapi.vercel.app' +
       (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
 
     return (
       <>
         <meta property="og:url" content={url} />
-        <meta property="og:title" content={frontMatter.title || 'Manual McD'} />
+        <meta property="og:title" content={frontMatter.title || 'SchemaAPI'} />
         <meta
           property="og:description"
-          content={frontMatter.description || 'Manual Online McD'}
+          content={frontMatter.description || 'Practical and useful solution for generating rrealistic test data.'}
         />
+        <link rel="icon" href="public/favicon.ico" type="image/x-icon"/>
       </>
     )
   },
   banner: {
     key: 'contribute',
     text: (
-      <a href="https://github.com/telloauguato/manualmcd" target="_blank">
+      <a href="https://github.com/telloauguato/schemaapi" target="_blank">
         🖋 Entre e contribua com as comunidade →
       </a>
     )
@@ -46,7 +47,7 @@ const config: DocsThemeConfig = {
     prev: true,
     next: true
   },
-  faviconGlyph: '🍔'
+  faviconGlyph: 'public/favicon.ico'
 }
 
 export default config
