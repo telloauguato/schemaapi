@@ -1,0 +1,77 @@
+{
+    "name": "Types",
+    "length": 1,
+    "content": [
+        {
+            "key": "value",
+            "type": "value",
+            "value": "value"
+        },
+        {
+            "key": "name",
+            "type": "name"
+        },
+        {
+            "key": "username",
+            "type": "username",
+            "prefix": "@"
+        },
+        {
+            "key": "pattern",
+            "type": "pattern",
+            "pattern": "+55 XX 9XXXX-XXXX"
+        },
+        {
+            "key": "options",
+            "type": "options",
+            "options": [
+                "admin",
+                "user",
+                "anonymous"
+            ]
+        },
+        {
+            "key": "street",
+            "type": "street"
+        },
+        {
+            "key": "email",
+            "type": "email"
+        },
+        {
+            "key": "city",
+            "type": "city"
+        },
+        {
+            "key": "state",
+            "type": "state"
+        },
+        {
+            "key": "country",
+            "type": "country"
+        },
+        {
+            "key": "int",
+            "type": "int",
+            "min": 1970,
+            "max": 2023
+        },
+        {
+            "key": "schema",
+            "type": "schema",
+            "length": -10,
+            "content": [
+                {
+                    "key": "name",
+                    "type": "name"
+                },
+                {
+                    "key": "email",
+                    "type": "email",
+                    "prefix": "internal.",
+                    "domain": "schema.api"
+                }
+            ]
+        }
+    ]
+}
