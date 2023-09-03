@@ -848,7 +848,7 @@ const gets = {
     data: async url => {
         return await fetch(url)
             .then(data => data.json())
-            .catch((error) => {e: error})
+            .catch((e) => e.json())
     },
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
@@ -879,8 +879,6 @@ const gets = {
         const result = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
         return `${prefix}${result}${suffix}`;
     },
-    avatar: ({ seed = 'schemaapi', sprites = 'human', background = 'ffffff' }) =>
-        `https://avatars.dicebear.com/api/${sprites}/${seed}.svg?background=%23${background}`,
     schema: ({ content = [], length = 1 }) => {
         if (length < 0) {
             length = Math.floor(Math.random() * Math.abs(length) + 1)
@@ -910,11 +908,7 @@ export default async (req, res) => {
     const url = `https://raw.githubusercontent.com/${user}/${repo}/master/${schema}.schema.json`
 
     const data = await gets.data(url)
-    var { length = 1, content = [], e } = data
-    if(e){ 
-        res.status(200).json(e)
-        return
-    }
+    var { length = 1, content = [] } = data
     if (length < 0) {
         length = Math.floor(Math.random() * Math.abs(length) + 1)
     }
@@ -933,6 +927,8 @@ export default async (req, res) => {
     res.status(200).json({
         user,
         repo,
+        file: `${schema}.schema.json`,
+        createdAt: new Date().toJSON(),
         data: result
     });
 }
