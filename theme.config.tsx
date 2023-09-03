@@ -38,7 +38,7 @@ const config: DocsThemeConfig = {
     key: 'contribute',
     text: (
       <a href="https://github.com/telloauguato/schemaapi" target="_blank">
-        🖋 Entre e contribua com as comunidade →
+        🐚 Entre e contribua com as comunidade →
       </a>
     )
   },
