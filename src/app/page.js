@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import userPic from './User.schema.png'
+import outpPic from './User.output.png'
 
 export default function Home() {
   return (
@@ -106,7 +107,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <Image className="mt-12 rounded-lg object-cover object-center md:mt-0 md:w-1/2 lg:w-3/5" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="step" />
+            <Image className="mt-12 rounded-lg object-cover object-center md:mt-0 md:w-1/2 lg:w-3/5" src={outpPic} alt="step" />
           </div>
         </div>
       </section>
@@ -149,7 +150,7 @@ export default function Home() {
           <span className="ml-3 text-2xl font-semibold">Schema<span className="text-blue-600 dark:text-blue-500">API</span></span>
           </a>
           <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:mt-0 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:pl-4">
-            © 2020 Tailblocks —
+            © 2023 SchemaAPI —
             <a href="https://twitter.com/knyttneve" className="ml-1 text-gray-600" rel="noopener noreferrer" target="_blank">@knyttneve</a>
           </p>
           <span className="mt-4 inline-flex justify-center sm:ml-auto sm:mt-0 sm:justify-start">
