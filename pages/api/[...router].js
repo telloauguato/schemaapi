@@ -848,7 +848,7 @@ const gets = {
     data: async url => {
         return await fetch(url)
             .then(data => data.json())
-            .catch((error) => ['Ocorreu um erro na solicitação:', error])
+            .catch(() => [])
     },
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
