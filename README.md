@@ -1,5 +1,5 @@
 # Manual McD
- 
+
 Bem-vindo(a) ao Manual de Procedimentos do McDonald's!
 
 Este manual é um guia essencial para todos os funcionários que fazem parte da família McDonald's. Aqui você encontrará detalhes sobre os procedimentos operacionais padrão, garantindo que cada passo do nosso serviço seja executado com excelência e consistência.
