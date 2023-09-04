@@ -60,7 +60,7 @@
         {
             "key": "schema",
             "type": "schema",
-            "length": -10,
+            "length": -2,
             "content": [
                 {
                     "key": "name",
