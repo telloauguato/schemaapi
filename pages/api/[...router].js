@@ -870,8 +870,7 @@ const gets = {
         `${prefix}${defaults.countries[Math.floor(Math.random() * defaults.countries.length)]}${suffix}`,
     email: ({ suffix = '', prefix = '', domain = 'schema.api' }) => {
         const user = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)];
-        const email = `${user}_${Math.floor(Math.random() * 10000)}@${domain}`;
-        return `${prefix}${email}${suffix}`;
+        return `${prefix}${user}_${Math.floor(Math.random() * 10000)}${suffix}@${domain}`.toLowerCase();
     },
     pattern: ({ suffix = '', prefix = '', pattern = 'XXX-XXX-XXXX' }) => {
         const result = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
