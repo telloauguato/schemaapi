@@ -899,7 +899,7 @@ export default async (req, res) => {
                     }, {})
                 )
         },
-        external: async ({user, repository, schema}) => await gets.data(`https://raw.githubusercontent.com/${user}/${repository}/main/${schema}.schema.json`)
+        external: async ({ user, repository, schema }) => await gets.data(`https://raw.githubusercontent.com/${user}/${repository}/main/${schema}.schema.json`)
     }
 
     const { router } = req.query;
@@ -917,14 +917,14 @@ export default async (req, res) => {
         length = Math.floor(Math.random() * Math.abs(length) + 1)
     }
     const result = (length === 1) ?
-        await content.reduce((acc, e) => {
+        await content.reduce(async (acc, e) => {
             const { key, type } = e;
-            return { ...acc, [key]: gets[type](e) };
+            return { ...acc, [key]: await gets[type](e) };
         }, {}) :
         Array.from({ length }, () =>
-            content.reduce((acc, e) => {
+            content.reduce(async (acc, e) => {
                 const { key, type } = e;
-                return { ...acc, [key]: gets[type](e) };
+                return { ...acc, [key]: await gets[type](e) };
             }, {})
         )
 
