@@ -846,7 +846,7 @@ const defaults = {
 
 export default async (req, res) => {
 
-    const gets = {
+    const gets = await {
         data: async url => {
             return await fetch(url)
                 .then(data => data.json())
