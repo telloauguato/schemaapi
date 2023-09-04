@@ -8,4 +8,13 @@ Using SchemaAPI is straightforward:
 
 3. Create the schema file: `*.schema.json`.
 
+    ``` json showLineNumbers copy filename="*.schema.json"
+    {
+        "name": "<schemaName>",
+        "description": "<descriptionSchema>",
+        "length": "<default: 1; -x: randon between 1 and x>",
+        "content": "[]: add types here"
+    }
+    ```
+
 4. Now just request the schema with the url: `https://schemaapi.vercel.app/api/<repository>@<username>/<pathAndNameOfSchemaFile>`. No need to append `.schema.json`
