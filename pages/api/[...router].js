@@ -910,7 +910,7 @@ export default async (req, res) => {
     const url = `https://raw.githubusercontent.com/${user}/${repo}/main/${schema}.schema.json`
 
     const data = await gets.data(url)
-    var { length = 1, content = [] } = data
+    var { length = 1, content = [], name = '', description = '' } = data
     if (length < 0) {
         length = Math.floor(Math.random() * Math.abs(length) + 1)
     }
@@ -927,6 +927,8 @@ export default async (req, res) => {
         )
 
     res.status(200).json({
+        name,
+        description,
         user,
         repo,
         file: `${schema}.schema.json`,
