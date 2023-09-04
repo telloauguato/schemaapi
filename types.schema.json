@@ -73,10 +73,6 @@
                     "domain": "schema.api"
                 }
             ]
-        },{
-            "key": "data",
-            "type": "data",
-            "url": "https://schemaapi.vercel.app/schemaapi@telloauguato/users"
         }
     ]
 }
