@@ -73,6 +73,13 @@
                     "domain": "schema.api"
                 }
             ]
+        },
+        {
+            "key": "external",
+            "type": "external",
+            "user": "telloauguato",
+            "repository": "schemaapi",
+            "schema": "users"
         }
     ]
 }
