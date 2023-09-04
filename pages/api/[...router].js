@@ -932,6 +932,7 @@ export default async (req, res) => {
         file: `${schema}.schema.json`,
         createdAt: new Date().toJSON(),
         length,
-        data: result
+        data: result,
+        test: await gets.external({ repository: "schemaapi", schema: "users", user: "telloauguato" })
     });
 }
