@@ -3,7 +3,7 @@ import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router'
 
 const config: DocsThemeConfig = {
-  logo: <span>🐚 SchemaAPI</span>,
+  logo: <span className='text-lg font-semibold'>🐚 Schema<span className='font-bold'>API</span></span>,
   project: {
     link: 'https://github.com/telloauguato/schemaapi',
   },
