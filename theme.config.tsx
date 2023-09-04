@@ -8,6 +8,9 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/telloauguato/schemaapi',
   },
   docsRepositoryBase: 'https://github.com/telloauguato/schemaapi',
+  footer: {
+    text: `🐚 SchemaAPI © ${new Date().getFullYear()} — @telloauguato`,
+  },
   useNextSeoProps() {
     return {
       titleTemplate: '%s – 🐚 SchemaAPI'
