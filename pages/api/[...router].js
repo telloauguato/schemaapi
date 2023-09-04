@@ -847,11 +847,7 @@ const defaults = {
 export default async (req, res) => {
 
     const gets = await {
-        data: async url => {
-            return await fetch(url)
-                .then(data => data.json())
-                .catch((e) => e.json())
-        },
+        data: async url => await fetch(url).then(data => data.json()).catch((e) => e.json()),
         name: ({ suffix = '', prefix = '' }) =>
             `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
         value: ({ suffix = '', prefix = '', value = '' }) =>
