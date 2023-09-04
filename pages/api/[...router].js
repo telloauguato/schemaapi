@@ -917,14 +917,14 @@ export default async (req, res) => {
         length = Math.floor(Math.random() * Math.abs(length) + 1)
     }
     const result = (length === 1) ?
-        await content.reduce(async (acc, e) => {
+        await content.reduce((acc, e) => {
             const { key, type } = e;
-            return { ...acc, [key]: await gets[type](e) };
+            return { ...acc, [key]: gets[type](e) };
         }, {}) :
         Array.from({ length }, () =>
-            content.reduce(async (acc, e) => {
+            content.reduce((acc, e) => {
                 const { key, type } = e;
-                return { ...acc, [key]: await gets[type](e) };
+                return { ...acc, [key]: gets[type](e) };
             }, {})
         )
 
