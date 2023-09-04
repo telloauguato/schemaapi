@@ -899,7 +899,7 @@ export default async (req, res) => {
                     }, {})
                 )
         },
-        external: async ({ user, repository, schema }) => await gets.data(`https://raw.githubusercontent.com/${user}/${repository}/main/${schema}.schema.json`)
+        external: async ({ user, repository, schema }) => await gets.data(`https://schemaapi.vercel.app/api/${repository}@${user}/${schema}`)
     }
 
     const { router } = req.query;
