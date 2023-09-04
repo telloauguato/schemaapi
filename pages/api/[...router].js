@@ -845,7 +845,7 @@ const defaults = {
 }
 
 const gets = {
-    data: async url => await fetch(url).then(data => data.json()).catch((e) => e.json()),
+    data: async ({ url }) => await fetch(url).then(data => data.json()).catch((e) => e.json()),
     name: ({ suffix = '', prefix = '' }) =>
         `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
     value: ({ suffix = '', prefix = '', value = '' }) =>
@@ -906,7 +906,7 @@ export default async (req, res) => {
     const schema = router.join('/')
     const url = `https://raw.githubusercontent.com/${user}/${repo}/main/${schema}.schema.json`
 
-    const data = await gets.data(url)
+    const data = await gets.data({ url })
     var { length = 1, content = [], name = '', description = '' } = data
     if (length < 0) {
         length = Math.floor(Math.random() * Math.abs(length) + 1)
