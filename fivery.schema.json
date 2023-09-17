@@ -12,9 +12,9 @@
       "pattern": "XXX.XXX.XXX-XX"
     },
     {
-      "key": "TELEFONE",
+      "key": "WHATSAPP",
       "type": "pattern",
-      "pattern": "+55 XX 9XXXX-XXXX"
+      "pattern": "https://wa.me/55XX9XXXXXXXX"
     },
     {
       "key": "CONCURSO",
