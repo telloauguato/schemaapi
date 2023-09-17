@@ -14,7 +14,7 @@
     {
       "key": "TELEFONE",
       "type": "pattern",
-      "pattern": "+55 XX 9 XXXX-XXXX"
+      "pattern": "+55 XX 9XXXX-XXXX"
     },
     {
       "key": "CONCURSO",
