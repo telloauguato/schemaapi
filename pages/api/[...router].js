@@ -1,5 +1,5 @@
 const defaults = {
-    names: [
+  names: [
         "João",
         "Pedro",
         "Lucas",
@@ -200,7 +200,7 @@ const defaults = {
         "Isabelle",
         "Larissa"
     ],
-    surinames: [
+  surinames: [
         "Silva",
         "Santos",
         "Oliveira",
@@ -300,7 +300,7 @@ const defaults = {
         "Castanho",
         "Cotta"
     ],
-    userfix: [
+  userfix: [
         "Super",
         "Mega",
         "Ultra",
@@ -406,7 +406,7 @@ const defaults = {
         "Amethyst",
         "Opal"
     ],
-    streets: [
+  streets: [
         "Rua Alegria",
         "Avenida Principal",
         "Travessa das Flores",
@@ -508,7 +508,7 @@ const defaults = {
         "Avenida da Generosidade",
         "Largo da Compaixão"
     ],
-    cities: [
+  cities: [
         "Cidadela",
         "Vale Verde",
         "Monte Azul",
@@ -606,7 +606,7 @@ const defaults = {
         "Porto da Compaixão",
         "Aldeia da Gratidão"
     ],
-    states: [
+  states: [
         "Estadônia",
         "Território das Montanhas",
         "Província das Águas",
@@ -729,7 +729,7 @@ const defaults = {
         "Província da Solidariedade",
         "Território da Bondade"
     ],
-    countries: [
+  countries: [
         "Avalonia",
         "Zephyria",
         "Terrânia",
@@ -845,91 +845,105 @@ const defaults = {
 }
 
 const gets = {
-    data: async url => await fetch(url).then(data => data.json()).catch((e) => e.json()),
-    name: ({ suffix = '', prefix = '' }) =>
-        `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
-    value: ({ suffix = '', prefix = '', value = '' }) =>
-        `${prefix}${value}${suffix}`,
-    int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) => suffix !== '' && prefix !== '' ?
-        `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}` : Math.floor(Math.random() * (max - min + 1)),
-    username: ({ suffix = '', prefix = '' }) => {
-        const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 });
-        return `${prefix}${username}${suffix}`;
-    },
-    options: ({ suffix = '', prefix = '', options = [] }) => suffix !== '' && prefix !== '' ? `${prefix}${options[Math.floor(Math.random() * options.length)]}${suffix}` : options[Math.floor(Math.random() * options.length)],
-    street: ({ suffix = '', prefix = '' }) => {
-        const street = defaults.streets[Math.floor(Math.random() * defaults.streets.length)];
-        const number = Math.floor(Math.random() * 10000);
-        return `${prefix}${street}, ${number}${suffix}`;
-    },
-    city: ({ suffix = '', prefix = '' }) =>
-        `${prefix}${defaults.cities[Math.floor(Math.random() * defaults.cities.length)]}${suffix}`,
-    state: ({ suffix = '', prefix = '' }) =>
-        `${prefix}${defaults.states[Math.floor(Math.random() * defaults.states.length)]}${suffix}`,
-    country: ({ suffix = '', prefix = '' }) =>
-        `${prefix}${defaults.countries[Math.floor(Math.random() * defaults.countries.length)]}${suffix}`,
-    email: ({ suffix = '', prefix = '', domain = 'schema.api' }) => {
-        const user = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)];
-        return `${prefix}${user}_${Math.floor(Math.random() * 10000)}${suffix}@${domain}`.toLowerCase();
-    },
-    pattern: ({ suffix = '', prefix = '', pattern = 'XXX-XXX-XXXX' }) => {
-        const result = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
-        return `${prefix}${result}${suffix}`;
-    },
-    schema: ({ content = [], length = 1 }) => {
-        if (length < 0) {
-            length = Math.floor(Math.random() * Math.abs(length) + 1)
-        }
-        return (length === 1)
-            ? content.reduce((acc, e) => {
-                const { key, type } = e;
-                return { ...acc, [key]: gets[type](e) };
-            }, {})
-            : Array.from({ length }, () =>
-                content.reduce((acc, e) => {
-                    const { key, type } = e;
-                    return { ...acc, [key]: gets[type](e) };
-                }, {})
-            )
+  data: async url => await fetch(url).then(data => data.json()).catch((e) => e.json()),
+  name: ({ suffix = '', prefix = '' }) =>
+    `${prefix}${defaults.names[Math.floor(Math.random() * defaults.names.length)]} ${defaults.surinames[Math.floor(Math.random() * defaults.surinames.length)]}${suffix}`,
+  value: ({ suffix = '', prefix = '', value = '' }) =>
+    `${prefix}${value}${suffix}`,
+  int: ({ suffix = '', prefix = '', min = 1, max = 1000 }) => suffix !== '' && prefix !== '' ?
+    `${prefix}${Math.floor(Math.random() * (max - min + 1))}${suffix}` : Math.floor(Math.random() * (max - min + 1)),
+  username: ({ suffix = '', prefix = '' }) => {
+    const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 });
+    return `${prefix}${username}${suffix}`;
+  },
+  options: ({ length = 1, options = [] }) => {
+    const result = [];
+    const arr = [...options];
+
+    for (let i = 0; i < length; i++) {
+      if (arr.length === 0) {
+        break
+      }
+      const i = Math.floor(Math.random() * arr.length);
+      const s = arr.splice(i, 1)[0];
+      result.push(s);
     }
+
+    return length === 1 ? result[0] : result;
+  },
+  street: ({ suffix = '', prefix = '' }) => {
+    const street = defaults.streets[Math.floor(Math.random() * defaults.streets.length)];
+    const number = Math.floor(Math.random() * 10000);
+    return `${prefix}${street}, ${number}${suffix}`;
+  },
+  city: ({ suffix = '', prefix = '' }) =>
+    `${prefix}${defaults.cities[Math.floor(Math.random() * defaults.cities.length)]}${suffix}`,
+  state: ({ suffix = '', prefix = '' }) =>
+    `${prefix}${defaults.states[Math.floor(Math.random() * defaults.states.length)]}${suffix}`,
+  country: ({ suffix = '', prefix = '' }) =>
+    `${prefix}${defaults.countries[Math.floor(Math.random() * defaults.countries.length)]}${suffix}`,
+  email: ({ suffix = '', prefix = '', domain = 'schema.api' }) => {
+    const user = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)];
+    return `${prefix}${user}_${Math.floor(Math.random() * 10000)}${suffix}@${domain}`.toLowerCase();
+  },
+  pattern: ({ suffix = '', prefix = '', pattern = 'XXX-XXX-XXXX' }) => {
+    const result = pattern.replace(/X/g, () => Math.floor(Math.random() * 10));
+    return `${prefix}${result}${suffix}`;
+  },
+  schema: ({ content = [], length = 1 }) => {
+    if (length < 0) {
+      length = Math.floor(Math.random() * Math.abs(length) + 1)
+    }
+    return (length === 1) ?
+      content.reduce((acc, e) => {
+        const { key, type } = e;
+        return { ...acc, [key]: gets[type](e) };
+      }, {}) :
+      Array.from({ length }, () =>
+        content.reduce((acc, e) => {
+          const { key, type } = e;
+          return { ...acc, [key]: gets[type](e) };
+        }, {})
+      )
+  }
 }
 
 export default async (req, res) => {
 
-    const { router } = req.query;
-    const split = router[0].split("@");
-    const [user, repo] = split.reverse();
+  const { router } = req.query;
+  const split = router[0].split("@");
+  const [user, repo] = split.reverse();
 
-    router.shift()
+  router.shift()
 
-    const schema = router.join('/')
-    const url = `https://raw.githubusercontent.com/${user}/${repo}/main/${schema}.schema.json`
+  const schema = router.join('/')
+  const url = `https://raw.githubusercontent.com/${user}/${repo}/main/${schema}.schema.json`
 
-    const data = await gets.data(url)
-    var { length = 1, content = [], name = '', description = '' } = data
-    if (length < 0) {
-        length = Math.floor(Math.random() * Math.abs(length) + 1)
-    }
-    const result = (length === 1) ?
-        await content.reduce((acc, e) => {
-            const { key, type } = e;
-            return { ...acc, [key]: gets[type](e) };
-        }, {}) :
-        Array.from({ length }, () =>
-            content.reduce((acc, e) => {
-                const { key, type } = e;
-                return { ...acc, [key]: gets[type](e) };
-            }, {})
-        )
+  const data = await gets.data(url)
+  var { length = 1, content = [], name = '', description = '' } = data
+  if (length < 0) {
+    length = Math.floor(Math.random() * Math.abs(length) + 1)
+  }
+  const result = (length === 1) ?
+    await content.reduce((acc, e) => {
+      const { key, type } = e;
+      return { ...acc, [key]: gets[type](e) };
+    }, {}) :
+    Array.from({ length }, () =>
+      content.reduce((acc, e) => {
+        const { key, type } = e;
+        return { ...acc, [key]: gets[type](e) };
+      }, {})
+    )
 
-    res.status(200).json({
-        name,
-        description,
-        user,
-        repo,
-        file: `${schema}.schema.json`,
-        createdAt: new Date().toJSON(),
-        length,
-        data: result,
-    });
+  res.status(200).json({
+    name,
+    description,
+    user,
+    repo,
+    file: `${schema}.schema.json`,
+    createdAt: new Date().toJSON(),
+    length,
+    data: result,
+  });
 }
