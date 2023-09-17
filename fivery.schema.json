@@ -1,7 +1,7 @@
 {
   "name": "Fivery Dados",
   "description": "Modelo de Dados de Fivery",
-  "length": 2,
+  "length": 20,
   "content": [
     {
       "key": "NOME",
@@ -13,10 +13,10 @@
       "pattern": "XXX.XXX.XXX-XX"
     },
     {
-      "key": "CONCURSO", 
-      "type": "value", 
+      "key": "CONCURSO",
+      "type": "value",
       "value": "C1635-6"
-    }, 
+    },
     {
       "key": "NUMEROS",
       "type": "options",
