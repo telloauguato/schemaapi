@@ -939,9 +939,7 @@ export default async (req, res) => {
   res.status(200).json({
     name,
     description,
-    user,
-    repo,
-    file: `${schema}.schema.json`,
+    url: `https://github.com/${user}/${repo}/main/${schema}.schema.json`,
     createdAt: new Date().toJSON(),
     length,
     data: result,
