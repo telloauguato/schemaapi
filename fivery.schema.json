@@ -1,7 +1,6 @@
 {
   "name": "Fivery Dados",
   "description": "Modelo de Dados de Fivery",
-  "length": 20,
   "content": [
     {
       "key": "NOME",
