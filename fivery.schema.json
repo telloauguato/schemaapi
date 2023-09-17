@@ -13,6 +13,11 @@
       "pattern": "XXX.XXX.XXX-XX"
     },
     {
+      "key": "TELEFONE",
+      "type": "pattern",
+      "pattern": "+55 XX 9 XXXX-XXXX"
+    },
+    {
       "key": "CONCURSO",
       "type": "value",
       "value": "C1635-6"
