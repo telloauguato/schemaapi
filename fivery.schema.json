@@ -1,6 +1,7 @@
 {
   "name": "Fivery Dados",
   "description": "Modelo de Dados de Fivery",
+  "length": -23980,
   "content": [
     {
       "key": "CPF",
