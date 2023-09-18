@@ -894,17 +894,12 @@ const gets = {
     if (length < 0) {
       length = Math.floor(Math.random() * Math.abs(length) + 1)
     }
-    return (length === 1) ?
+    return Array.from({ length }, () =>
       content.reduce((acc, e) => {
         const { key, type } = e;
         return { ...acc, [key]: gets[type](e) };
-      }, {}) :
-      Array.from({ length }, () =>
-        content.reduce((acc, e) => {
-          const { key, type } = e;
-          return { ...acc, [key]: gets[type](e) };
-        }, {})
-      )
+      }, {})
+    )
   }
 }
 
@@ -924,17 +919,12 @@ export default async (req, res) => {
   if (length < 0) {
     length = Math.floor(Math.random() * Math.abs(length) + 1)
   }
-  const result = (length === 1) ?
-    await content.reduce((acc, e) => {
+  const result = Array.from({ length }, () =>
+    content.reduce((acc, e) => {
       const { key, type } = e;
       return { ...acc, [key]: gets[type](e) };
-    }, {}) :
-    Array.from({ length }, () =>
-      content.reduce((acc, e) => {
-        const { key, type } = e;
-        return { ...acc, [key]: gets[type](e) };
-      }, {})
-    )
+    }, {})
+  )
 
   res.status(200).json({
     name,
