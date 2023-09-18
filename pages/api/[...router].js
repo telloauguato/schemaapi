@@ -856,7 +856,7 @@ const gets = {
     const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 });
     return `${prefix}${username}${suffix}`;
   },
-  options: ({ length = 1, options = [] }) => {
+  options: ({ length = 1, options = [], order: false }) => {
     const result = [];
     const arr = [...options];
 
@@ -869,7 +869,7 @@ const gets = {
       result.push(s);
     }
 
-    return length === 1 ? result[0] : result;
+    return length === 1 ? result[0] : (order ? result.sort((a, b) => a - b) : result);
   },
   street: ({ suffix = '', prefix = '' }) => {
     const street = defaults.streets[Math.floor(Math.random() * defaults.streets.length)];
