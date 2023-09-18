@@ -856,7 +856,7 @@ const gets = {
     const username = defaults.userfix[Math.floor(Math.random() * defaults.userfix.length)] + gets.int({ max: 100000, min: 9999 });
     return `${prefix}${username}${suffix}`;
   },
-  options: ({ length = 1, options = [], order: false }) => {
+  options: ({ length = 1, options = [], order = false }) => {
     const result = [];
     const arr = [...options];
 
