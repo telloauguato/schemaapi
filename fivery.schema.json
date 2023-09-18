@@ -15,6 +15,7 @@
     {
       "key": "APOSTAS",
       "type": "schema",
+      "length": -4,
       "content": [
         {
           "key": "BILHETE",
