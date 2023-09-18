@@ -32,7 +32,7 @@ function ApiData({ data }) {
 
   return (
     <div>
-      <h1>{result.join(' — ')}</h1>
+      <h1>{result.sort((a, b)=>a-b).join(' — ')}</h1>
       <pre>{JSON.stringify(apiData, null, 2)}</pre>
     </div>
   );
