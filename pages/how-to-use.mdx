@@ -17,11 +17,11 @@ Using SchemaAPI is straightforward:
     }
     ```
 
-| key | type | description | default |
-|---|----|-----|----|
-| name | ```String``` | Schema Name. | ```"schemaapi"``` |
-| description | ```String``` | Schema description. | ```"My SchemaAPI"``` |
-| length | ```Number``` | Amount of data returned. -x — randon between 1 and x. | ```1``` |
-| content | ```Array<Types>``` | Array containing the bodies with types of the data to be inserted. | ```[]``` |
+	| key | type | description | default |
+	|---|----|-----|----|
+	| name | ```String``` | Schema Name. | ```"schemaapi"``` |
+	| description | ```String``` | Schema description. | ```"My SchemaAPI"``` |
+	| length | ```Number``` | Amount of data returned. -x — randon between 1 and x. | ```1``` |
+	| content | ```Array<Types>``` | Array containing the bodies with types of the data to be inserted. | ```[]``` |
 
 4. Now just request the schema with the url: `https://schemaapi.vercel.app/api/<repository>@<username>/<pathAndNameOfSchemaFile>`. No need to append `.schema.json`
