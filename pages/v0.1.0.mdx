@@ -161,3 +161,190 @@ The required property in all types is the `type`. It is mandatory to use it in a
 |:--|:--|
 | `pattern` **\<string>** _required_ | The pattern property is used to define the pattern that will be applied to generate data. The value of the property must be a string containing the pattern. The pattern will be important for the property to apply the rules that determine which characters or sequences of characters will be considered valid for generating data. |
 | `define` **\<objetc>** _required_ | The define property allows you to define custom rules to replace specific characters in the pattern. It receives an object as a value, where each key represents a character from the pattern and the value defines the type of data to be replaced. This property is useful for generating data with specific formats, such as phone numbers, addresses, or zip codes. |
+
+
+## Typescript
+
+```typescript
+/**
+ * Defines the allowed types directly.
+ * - Allowed values are "name", "number", "username", "uuid", and strings starting with "@".
+ */
+type AllowedTypesDirect = "name" | "number" | "username" | "uuid" | `@${string}`;
+
+/**
+ * Defines the allowed types for cells.
+ * - Allowed values are "pattern", "email", "options", "schema", and AllowedTypesDirect.
+ */
+type AllowedTypes = "pattern" | "email" | "options" | "schema" | AllowedTypesDirect;
+
+/**
+ * Defines the allowed types that define patterns.
+ * - Allowed values are "numeric", "alphabetic", "alphanumeric", "special", and strings starting with "@".
+ */
+type AllowedTypesDefinesPattern = "numeric" | "alphabetic" | "alphanumeric" | "special" | `@${string}`;
+
+/**
+ * Defines the allowed types for mathematical calculations.
+ * - Allowed values are "sum" and "multiply".
+ */
+type AllowedTypesCalcsMathValues = "sum" | "multiply";
+
+/**
+ * Defines the allowed types for number calculations.
+ * - Allowed values are "pi", numbers, and strings starting with "@".
+ */
+type AllowedTypesCalcsNumbersValues = "pi" | number | `@${string}`;
+
+/**
+ * Defines the properties for returning strings.
+ * - `sufix`: Optional string property for suffix.
+ * - `prefix`: Optional string property for prefix.
+ * - `format`: Optional property specifying the format as "uppercase" or "lowercase".
+ */
+interface StringReturnProperty {
+  sufix?: string;
+  prefix?: string;
+  format?: "uppercase" | "lowercase";
+}
+
+/**
+ * Defines the properties for returning objects.
+ * - `swear`: Optional string property for swearing.
+ */
+interface ObjectReturnProperty {
+  swear?: string;
+}
+
+/**
+ * Defines the properties for returning numbers.
+ * - `round`: Optional property for rounding, either a number, "ceil", or "floor".
+ * - `max`: Optional property for maximum value.
+ * - `min`: Optional property for minimum value.
+ * - `increment`: Optional property for incrementing.
+ * - `decrement`: Optional property for decrementing.
+ * - `calc`: Optional property for calculations, an array of AllowedTypesCalcsMathValues or AllowedTypesCalcsNumbersValues.
+ */
+interface NumberReturnProperty {
+  round?: number | "ceil" | "floor";
+  max?: number;
+  min?: number;
+  increment?: number;
+  decrement?: number;
+  calc?: [AllowedTypesCalcsMathValues, number | AllowedTypesCalcsNumbersValues[]][];
+}
+
+/**
+ * Defines the default cell type.
+ * - `type`: A property with one of the AllowedTypesDirect values.
+ */
+interface DefaultCellType {
+  type: AllowedTypesDirect;
+}
+
+/**
+ * Defines a cell type with a specific pattern.
+ * - `type`: Property with the value "pattern".
+ * - `pattern`: Regular expression string representing the allowed pattern for the cell value.
+ * - `define`: Object with keys defining types of patterns and values from AllowedTypesDefinesPattern.
+ */
+interface PatternCellType extends StringReturnProperty {
+  type: "pattern";
+  pattern: string;
+  define: { [key: string]: AllowedTypesDefinesPattern };
+}
+
+/**
+ * Defines a cell type for names.
+ * - `type`: Property with the value "name".
+ * - `join`: Optional boolean property for joining.
+ */
+interface NameCellType extends StringReturnProperty {
+  type: "name";
+  join?: boolean;
+}
+
+/**
+ * Defines a cell type for numbers.
+ * - `type`: Property with the value "number".
+ */
+interface NumberCellType extends NumberReturnProperty {
+  type: "number";
+}
+
+/**
+ * Defines a cell type for emails.
+ * - `type`: Property with the value "email".
+ * - `domain`: String property specifying the domain.
+ * - `use`: Optional string property for usage.
+ */
+interface EmailCellType extends StringReturnProperty {
+  type: "email";
+  domain: string;
+  use?: string;
+}
+
+/**
+ * Defines a cell type for options.
+ * - `type`: Property with the value "options".
+ * - `options`: Array of strings representing available options.
+ * - `length`: Optional number property for length.
+ * - `order`: Optional boolean property for order.
+ */
+interface OptionsCellType extends StringReturnProperty {
+  type: "options";
+  options: string[];
+  length?: number;
+  order?: boolean;
+}
+
+/**
+ * Defines a cell type for schemas.
+ * - `type`: Property with the value "schema".
+ * - `length`: Number property specifying the length.
+ * - `content`: Object representing content with keys from ContentType.
+ */
+interface SchemaCellType {
+  type: "schema";
+  length: number;
+  content: ContentType;
+}
+
+/**
+ * Defines the possible types for cell properties.
+ * - Can be NumberCellType, SchemaCellType, OptionsCellType, EmailCellType, PatternCellType, NameCellType, or DefaultCellType.
+ */
+type CellPropsTypes = NumberCellType | SchemaCellType | OptionsCellType | EmailCellType | PatternCellType | NameCellType | DefaultCellType;
+
+/**
+ * Defines the typing for default cell properties.
+ * - Keys are strings with values from CellPropsTypes.
+ */
+type CellDefaultPropsTyping = {
+  [key: string]: CellPropsTypes;
+};
+
+/**
+ * Defines the content type for schemas.
+ * - Keys are strings with values from `AllowedTypesDirect` or `CellPropsTypes`.
+ */
+type ContentType = {
+  [key: string]: AllowedTypesDirect | CellPropsTypes;
+};
+
+/**
+ * Defines a schema type [Schema Design Guide](https://www.integrate.io/blog/complete-guide-to-database-schema-design-guide/).
+ * - `name`: Optional property for the schema name.
+ * - `description`: Optional property for describing the schema.
+ * - `version`: Required string property representing the version of the SchemaAPI.
+ * - `length`: Optional number property for the length of the schema.
+ * - `content`: Property representing the content of the schema, defined by ContentType.
+ */
+type SchemaType = {
+  name?: string;
+  description?: string;
+  version: string
+  length?: number
+  content: ContentType;
+};
+```
