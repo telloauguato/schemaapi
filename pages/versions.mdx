@@ -1,39 +1,49 @@
-# SchemaAPI _v0.1.0_
+# SchemaAPI Code Version
 
 
-## Typescript
+## v0.1.0
 
-```typescript copy filename=schema-api.ts
+```typescript copy filename="Typescript"
 /**
  * Defines the allowed types directly.
  * - Allowed values are "name", "number", "username", "uuid", and strings starting with "@".
  */
 type AllowedTypesDirect = "name" | "number" | "username" | "uuid" | `@${string}`;
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the allowed types for cells.
  * - Allowed values are "pattern", "email", "options", "schema", and AllowedTypesDirect.
  */
 type AllowedTypes = "pattern" | "email" | "options" | "schema" | AllowedTypesDirect;
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the allowed types that define patterns.
  * - Allowed values are "numeric", "alphabetic", "alphanumeric", "special", and strings starting with "@".
  */
 type AllowedTypesDefinesPattern = "numeric" | "alphabetic" | "alphanumeric" | "special" | `@${string}`;
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the allowed types for mathematical calculations.
  * - Allowed values are "sum" and "multiply".
  */
 type AllowedTypesCalcsMathValues = "sum" | "multiply";
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the allowed types for number calculations.
  * - Allowed values are "pi", numbers, and strings starting with "@".
  */
 type AllowedTypesCalcsNumbersValues = "pi" | number | `@${string}`;
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the properties for returning strings.
  * - `sufix`: Optional string property for suffix.
@@ -45,7 +55,9 @@ interface StringReturnProperty {
   prefix?: string;
   format?: "uppercase" | "lowercase";
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the properties for returning objects.
  * - `swear`: Optional string property for swearing.
@@ -53,7 +65,9 @@ interface StringReturnProperty {
 interface ObjectReturnProperty {
   swear?: string;
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the properties for returning numbers.
  * - `round`: Optional property for rounding, either a number, "ceil", or "floor".
@@ -71,7 +85,9 @@ interface NumberReturnProperty {
   decrement?: number;
   calc?: [AllowedTypesCalcsMathValues, number | AllowedTypesCalcsNumbersValues[]][];
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the default cell type.
  * - `type`: A property with one of the AllowedTypesDirect values.
@@ -79,7 +95,9 @@ interface NumberReturnProperty {
 interface DefaultCellType {
   type: AllowedTypesDirect;
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines a cell type with a specific pattern.
  * - `type`: Property with the value "pattern".
@@ -91,7 +109,9 @@ interface PatternCellType extends StringReturnProperty {
   pattern: string;
   define: { [key: string]: AllowedTypesDefinesPattern };
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines a cell type for names.
  * - `type`: Property with the value "name".
@@ -101,7 +121,9 @@ interface NameCellType extends StringReturnProperty {
   type: "name";
   join?: boolean;
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines a cell type for numbers.
  * - `type`: Property with the value "number".
@@ -109,7 +131,9 @@ interface NameCellType extends StringReturnProperty {
 interface NumberCellType extends NumberReturnProperty {
   type: "number";
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines a cell type for emails.
  * - `type`: Property with the value "email".
@@ -121,7 +145,9 @@ interface EmailCellType extends StringReturnProperty {
   domain: string;
   use?: string;
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines a cell type for options.
  * - `type`: Property with the value "options".
@@ -135,7 +161,9 @@ interface OptionsCellType extends StringReturnProperty {
   length?: number;
   order?: boolean;
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines a cell type for schemas.
  * - `type`: Property with the value "schema".
@@ -147,13 +175,17 @@ interface SchemaCellType {
   length: number;
   content: ContentType;
 }
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the possible types for cell properties.
  * - Can be NumberCellType, SchemaCellType, OptionsCellType, EmailCellType, PatternCellType, NameCellType, or DefaultCellType.
  */
 type CellPropsTypes = NumberCellType | SchemaCellType | OptionsCellType | EmailCellType | PatternCellType | NameCellType | DefaultCellType;
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the typing for default cell properties.
  * - Keys are strings with values from CellPropsTypes.
@@ -161,7 +193,9 @@ type CellPropsTypes = NumberCellType | SchemaCellType | OptionsCellType | EmailC
 type CellDefaultPropsTyping = {
   [key: string]: CellPropsTypes;
 };
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines the content type for schemas.
  * - Keys are strings with values from `AllowedTypesDirect` or `CellPropsTypes`.
@@ -169,7 +203,9 @@ type CellDefaultPropsTyping = {
 type ContentType = {
   [key: string]: AllowedTypesDirect | CellPropsTypes;
 };
+```
 
+```typescript copy filename="Typescript"
 /**
  * Defines a schema type.
  * - `name`: Optional property for the schema name.
