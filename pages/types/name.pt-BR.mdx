@@ -1,0 +1,32 @@
+# Name
+
+O tipo `name` no SchemaAPI é projetado para gerar nomes fictícios realistas, úteis em cenários de desenvolvimento e teste onde dados de identificação pessoal são necessários, mas não devem corresponder a indivíduos reais.
+
+## Aplicação
+
+### Asimilação Direta
+
+```json
+{
+  "key":  "name"
+}
+
+### Atribuição Incorporada
+
+```json
+{
+  "key": {
+    "type": "name"
+  }
+}
+```
+
+Neste exemplo, `firstName` e `lastName` são configurados para gerar nomes próprios e sobrenomes fictícios, respectivamente. O SchemaAPI utiliza padrões de geração aleatórios, garantindo que cada execução produza resultados diferentes, mas consistentes em estrutura e formato.
+
+#### Benefícios
+
+- **Realismo Controlado**: Os nomes gerados são realistas o suficiente para simular casos de uso reais.
+- **Variedade**: Oferece uma ampla variedade de nomes para cobrir diferentes cenários de teste.
+- **Facilidade de Uso**: Configuração simples através da especificação do tipo e uso de Faker.js para geração automatizada.
+
+O tipo `name` no SchemaAPI é uma adição valiosa para qualquer projeto que requer dados fictícios personalizados, ajudando a garantir a privacidade e segurança dos dados reais enquanto permite o desenvolvimento e teste eficientes de aplicações.
