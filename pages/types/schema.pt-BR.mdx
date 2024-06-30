@@ -1,0 +1,49 @@
+# Schema
+
+O tipo `schema` é projetado para criar esquemas secundários e os retorna como objetos, permitindo que o usuário crie hierarquias de dados mais complexas. 
+
+import { Callout } from 'nextra/components'
+ 
+<Callout type="info" emoji="ℹ️">
+  A **Propriedade Herdada** desse tipo é a [Object](/inherited/object)
+</Callout>
+
+import { Tabs } from 'nextra/components'
+
+## Atribuição
+ 
+<Tabs items={['Incorporada', 'Retorno']}>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": {
+            "type": "schema",
+            "length": 2,
+            "schema": {
+                "name": "name"
+            }
+        }
+    }
+    ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": [
+            { "name": "John Doe" },
+            { "name": "Suzan Joe" }
+        ]
+    }
+    ```
+    </Tabs.Tab>
+</Tabs>
+
+
+
+## Propriedades
+
+| Nome          | Tipo      | Descrição   | Requerida |
+| ------------- | --------- | -------- | --------- |
+| `type`        | `string`  | Define o tipo de dado que será retornado. Deve ser atribuído como `schema`. | Sim       |
+| `length`      | `number`  | Define o comprimento padrão quando menor que `0`. Este é opcional.          | Não       |
+| `schema`      | `object`  | Define os tipos de dados a serem retornados como um objeto de esquema.      | Sim       |

@@ -1,0 +1,46 @@
+# Options
+
+The `options` type returns one or more values, depending on the number of options passed to it, as specified by the `length` attribute.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="ℹ️">
+    The **Inherited Property** of this type is [List](/inherited/list)
+</Callout>
+
+import { Tabs } from 'nextra/components'
+
+## Attribution
+
+<Tabs items={['Incorporated', 'Return']}>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": {
+            "type": "options",
+            "length": 2,
+            "options": ["option-1", "option-2", "option-3"],
+            "order": true
+        }
+    }
+    ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": ["option-1", "option-3"]
+    }
+    ```
+    </Tabs.Tab>
+</Tabs>
+
+
+
+## Properties
+
+| Name | Type | Description | Required |
+| ------------- | --------- | -------- | --------- |
+| `type` | `string` | Defines the type of data that will be returned. Must be assigned as `options`. | Yes |
+| `length` | `number` | Sets the default length when less than `0`. This is optional. | No |
+| `options` | `array` | Defines the data to be randomly drawn to be returned as an array if the `length` is greater than 1, otherwise it returns the drawn value. | Yes |
+| `order` | `boolean` | When `true` sorts the values ​​in order. By default it is `false`. | No |

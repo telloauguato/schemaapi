@@ -1,0 +1,42 @@
+# Email
+
+The `email` type is designed to represent valid email addresses. It is useful in scenarios where it is necessary to store or manipulate contact data, ensuring that the values ​​entered follow the standard email address format.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="ℹ️">
+    The **Inherited Property** of this type is [String](/inherited/string)
+</Callout>
+
+import { Tabs } from 'nextra/components'
+
+## Attribution
+
+<Tabs items={['Incorporated', 'Return']}>
+    <Tabs.Tab>
+    ```json
+        {
+        "key": {
+            "type": "email",
+            "domain": "schema.api"
+        }
+    }
+    ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": "john.doe23@schema.api"
+    }
+    ```
+    </Tabs.Tab>
+</Tabs>
+
+
+
+## Properties
+
+| Name | Type | Description | Required |
+| ------------- | -------- | -------------- | --------- |
+| `type` | `string` | Type of data that will be returned. It must be assigned as `email`. | Yes |
+| `domain` | `string` | Write a domain to be the dummy domain of the data or an array of domains | Yes |
