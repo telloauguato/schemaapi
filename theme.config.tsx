@@ -14,7 +14,7 @@ const config: DocsThemeConfig = {
   faviconGlyph: "≝",
   i18n: [
     { locale: "en-US", text: "English" },
-    { locale: "pt-BR", text: "Portuguese" },
+    { locale: "pt-BR", text: "Português" },
   ],
 };
 
