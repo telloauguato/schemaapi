@@ -1,18 +1,21 @@
-import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import React from "react";
+import { DocsThemeConfig } from "nextra-theme-docs";
+import pkg from "./package.json";
 
 const config: DocsThemeConfig = {
-  logo: <span>My Project</span>,
+  logo: <span>≝ SchemaAPI</span>,
   project: {
-    link: 'https://github.com/shuding/nextra-docs-template',
+    link: "https://github.com/telloauguato/schemaapi",
   },
-  chat: {
-    link: 'https://discord.com',
-  },
-  docsRepositoryBase: 'https://github.com/shuding/nextra-docs-template',
+  docsRepositoryBase: "https://github.com/telloauguato/schemaapi",
   footer: {
-    text: 'Nextra Docs Template',
+    text: `≝ SchemaAPI Docs — ${pkg.version} | Telo`,
   },
-}
+  faviconGlyph: "≝",
+  i18n: [
+    { locale: "en-US", text: "English" },
+    { locale: "pt-BR", text: "Portuguese" },
+  ],
+};
 
-export default config
+export default config;
