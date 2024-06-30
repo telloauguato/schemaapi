@@ -1,3 +1,50 @@
-# Name
+#Name
 
-Satori (悟り) is a Japanese Buddhist term for awakening, "comprehension; understanding".
+The `name` type in SchemaAPI is designed to generate realistic fictitious names, useful in development and testing scenarios where personally identifiable data is required but should not correspond to real individuals.
+
+import { Callout } from 'nextra/components'
+
+<Callout type="info" emoji="ℹ️">
+    The **Inherited Property** of this type is [String](/inherited/string)
+</Callout>
+
+import { Tabs } from 'nextra/components'
+
+## Assignment
+
+<Tabs items={['Direct', 'Embedded', 'Return']}>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": "name"
+    }
+    ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": {
+            "type": "name"
+        }
+    }
+    ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+    ```
+    John Doe
+    ```
+    </Tabs.Tab>
+</Tabs>
+
+
+
+## Properties
+
+| Name | Type | Description | Required |
+| ------------- | -------- | -------------- | --------- |
+| `type` | `string` | Type of data that will be returned. Must be assigned as `name`. | Yes |
+| `join` | `boolean` | Defines whether the result should be returned as a string (`true`) or object (`false`). The default value is `true`. | No |
+
+<Callout type="info" emoji="ℹ️">
+    When using attributes from [**Inherited Property String**](/inherited/string) and the `join` attribute is set to `true`, these attributes are returned within the body of the return object.
+</Callout>

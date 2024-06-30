@@ -2,31 +2,49 @@
 
 O tipo `name` no SchemaAPI é projetado para gerar nomes fictícios realistas, úteis em cenários de desenvolvimento e teste onde dados de identificação pessoal são necessários, mas não devem corresponder a indivíduos reais.
 
-## Aplicação
+import { Callout } from 'nextra/components'
+ 
+<Callout type="info" emoji="ℹ️">
+  A **Propriedade Herdada** desse tipo é a [String](/inherited/string)
+</Callout>
 
-### Asimilação Direta
+import { Tabs } from 'nextra/components'
 
-```json
-{
-  "key":  "name"
-}
+## Atribuição
+ 
+<Tabs items={['Direta', 'Incorporada', 'Retorno']}>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": "name"
+    }
+    ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+    ```json
+    {
+        "key": {
+            "type": "name"
+        }
+    }
+    ```
+    </Tabs.Tab>
+    <Tabs.Tab>
+    ```
+    John Doe
+    ```
+    </Tabs.Tab>
+</Tabs>
 
-### Atribuição Incorporada
 
-```json
-{
-  "key": {
-    "type": "name"
-  }
-}
-```
 
-Neste exemplo, `firstName` e `lastName` são configurados para gerar nomes próprios e sobrenomes fictícios, respectivamente. O SchemaAPI utiliza padrões de geração aleatórios, garantindo que cada execução produza resultados diferentes, mas consistentes em estrutura e formato.
+## Propriedades
 
-#### Benefícios
-
-- **Realismo Controlado**: Os nomes gerados são realistas o suficiente para simular casos de uso reais.
-- **Variedade**: Oferece uma ampla variedade de nomes para cobrir diferentes cenários de teste.
-- **Facilidade de Uso**: Configuração simples através da especificação do tipo e uso de Faker.js para geração automatizada.
-
-O tipo `name` no SchemaAPI é uma adição valiosa para qualquer projeto que requer dados fictícios personalizados, ajudando a garantir a privacidade e segurança dos dados reais enquanto permite o desenvolvimento e teste eficientes de aplicações.
+| Nome | Tipo  | Descrição | Requerida |
+| ------------- | -------- | -------------- | --------- |
+| `type`        | `string` | Tipo de dado que será retornado. Deve ser atribuído como `name`. | Sim |
+| `join` | `boolean` | 	Define se o resultado deve ser retornado como string (`true`) ou objeto (`false`). O valor padrão é `true`. | Não |
+ 
+<Callout type="info" emoji="ℹ️">
+  Quando se utiliza atributos da [**Propriedade Herdada String**](/inherited/string) e o atributo `join` está configurado como `true`, esses atributos retornam dentro do corpo do objeto de retorno.
+</Callout>

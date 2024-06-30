@@ -1,10 +1,10 @@
 # Tipos
 
-## Tipo _Global Schema_
+## _Global Schema_
 
 O `Global Schema` é o corpo do schema padrão utilizado no SchemaAPI. Ele define a estrutura geral para a geração de dados fictícios, permitindo que você configure propriedades essenciais para personalizar os dados gerados.
 
-### Estrutura do Global Schema
+### Estrutura
 
 ```json
 {
@@ -18,26 +18,17 @@ O `Global Schema` é o corpo do schema padrão utilizado no SchemaAPI. Ele defin
 }
 ```
 
-#### Tabela de Propriedades do Global Schema
+### Propriedades
 
-| Nome          | Tipo     | Descrição                                                            | Requerida |
+| Nome  | Tipo  | Descrição | Requerida |
 | ------------- | -------- | -------------- | --------- |
-| `name`        | `string` | Nome do schema.                                                      | Não       |
-| `description` | `string` | Descrição do schema.                                                 | Não       |
-| `length`      | `number` | Número de objetos a serem gerados.                                   | Sim       |
-| `version`     | `number` | Versão do SchemaAPI.                                                    | Não       |
-| `lang`        | `string` | Língua de retorno dos dados.                                         | Não       |
-| `seed`        | `number` | Semente para geração de dados pseudo-aleatórios (para consistência). | Não       |
-| `content`     | `object` | Corpo do schema contendo as propriedades a serem geradas.            | Sim       |
-
-#### Descrição das Propriedades
-
-- **`name`**: Nome do schema opcional, utilizado para identificar o conjunto de dados gerado.
-- **`description`**: Uma descrição opcional do schema, fornecendo contexto ou detalhes sobre o uso dos dados gerados.
-- **`length`**: Define o número de objetos que serão gerados pelo SchemaAPI. Se não for especificado, um valor padrão de `1` será utilizado. Caso seja um valor negativo, será gerado um valor aleatório entre `1` e o valor absoluto do número.
-- **`version`**: Versão da API do SchemaAPI a ser utilizada, empregada para determinar o modo de geração de dados aplicado ao conteúdo (`content`).
-- **`seed`**: Uma semente opcional para garantir a consistência dos dados gerados em diferentes execuções. Útil para testes repetíveis.
-- **`content`**: O núcleo do schema, onde você define as propriedades e seus tipos. Esta é a parte mais importante do schema e deve ser configurada de acordo com os dados que você deseja gerar.
+| `name`        | `string` | ome do schema opcional, utilizado para identificar o conjunto de dados gerado. | Não       |
+| `description` | `string` | Uma descrição opcional do schema, fornecendo contexto ou detalhes sobre o uso dos dados gerados. | Não       |
+| `length`      | `number` | Define o número de objetos que serão gerados pelo SchemaAPI. Se não for especificado, um valor padrão de `1` será utilizado. Caso seja um valor negativo, será gerado um valor aleatório entre `1` e o valor absoluto do número. | Sim       |
+| `version`     | `number` | Versão da API do SchemaAPI a ser utilizada, empregada para determinar o modo de geração de dados aplicado ao conteúdo (`content`). | Não       |
+| `lang`        | `string` | Especifica o idioma no qual os dados serão retornados. | Não       |
+| `seed`        | `number` | Uma semente opcional para garantir a consistência dos dados gerados em diferentes execuções. Útil para testes repetíveis. | Não       |
+| `content`     | `object` | O núcleo do schema, onde você define as propriedades e seus tipos. Esta é a parte mais importante do schema e deve ser configurada de acordo com os dados que você deseja gerar.| Sim       |
 
 ### Exemplo
 
@@ -100,6 +91,10 @@ Você pode atribuir um tipo de maneira mais detalhada, especificando propriedade
 }
 ```
 
+<Callout type="warning" emoji="⚠️">
+  Toda atribuição incorporada deve incluir obrigatoriamente o atributo `type` por padrão.
+</Callout>
+
 ### Exemplos
 
 - **Atribuição Direta**:
@@ -128,7 +123,7 @@ Utilize o método de atribuição que melhor se adequa às suas necessidades, se
 Abaixo estão listados todos os tipos de dados suportados pelo SchemaAPI para consulta. Utilize esta referência para configurar suas propriedades de acordo com as necessidades específicas do seu projeto.
 
 import { Cards, Card } from "nextra/components";
-import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand,  Dices, TableProperties } from "lucide-react";
+import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand,  Dices, TableProperties, Braces, Brackets } from "lucide-react";
 
 <Cards>
   <Card icon={<CaseSensitive />} title="Name" href="/types/name" />
@@ -140,4 +135,17 @@ import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand,  Dices, Tabl
   <Card icon={<Wand />} title="Pattern" href="/types/pattern" />
   <Card icon={<Dices />} title="Options" href="/types/options" />
   <Card icon={<TableProperties />} title="Schema" href="/types/schema" />
+</Cards>
+
+## Propiedades Herdadas
+
+As propriedades herdadas referem-se às propriedades que são automaticamente atribuídas a um tipo baseado em sua definição ou comportamento padrão. Em essência, essas propriedades são inerentes ao tipo e são aplicadas independentemente de como ele é utilizado.
+
+Aqui está a lista das propriedades herdadas disponíveis:
+
+<Cards>
+  <Card icon={<CaseSensitive />} title="String" href="/inherited/string" />
+  <Card icon={<Hash />} title="Number" href="/inherited/number" />
+  <Card icon={<Braces />} title="Object" href="/inherited/object" />
+  <Card icon={<Brackets />} title="List" href="/inherited/list" />
 </Cards>
