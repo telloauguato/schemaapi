@@ -123,7 +123,7 @@ Use the assignment method that best suits your needs, whether it's a simple sett
 Listed below are all data types supported by SchemaAPI for querying. Use this reference to configure its properties according to the specific needs of your project.
 
 import { Cards, Card } from "nextra/components";
-import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand, Dices, TableProperties, Braces, Brackets } from "lucide-react";
+import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand, Dices, TableProperties } from "lucide-react";
 
 <Cards>
     <Card icon={<CaseSensitive />} title="Name" href="/types/name" />
@@ -135,17 +135,4 @@ import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand, Dices, Table
     <Card icon={<Wand />} title="Pattern" href="/types/pattern" />
     <Card icon={<Dices />} title="Options" href="/types/options" />
     <Card icon={<TableProperties />} title="Schema" href="/types/schema" />
-</Cards>
-
-## Inherited Properties
-
-Inherited properties refer to properties that are automatically assigned to a type based on its default definition or behavior. In essence, these properties are inherent to the type and apply regardless of how it is used.
-
-Here is the list of available inherited properties:
-
-<Cards>
- <Card icon={<CaseSensitive />} title="String" href="/inherited/string" />
- <Card icon={<Hash />} title="Number" href="/inherited/number" />
- <Card icon={<Braces />} title="Object" href="/inherited/object" />
- <Card icon={<Brackets />} title="List" href="/inherited/list" />
 </Cards>

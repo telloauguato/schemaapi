@@ -1,0 +1,31 @@
+#String
+
+The **String Inherited Property** adds optional attributes to the type. These attributes are `suffix`, `prefix` and `format`.
+
+```json filename="Email type"
+{
+    "type": "email",
+    "domain": "active.inc",
+    "suffix": ".internal",
+    "prefix": "admin.",
+    "format": "lowercase"
+}
+```
+
+- **`suffix`**: Adds text that will be placed at the end of the string.
+- **`prefix`**: Adds text that will be placed at the beginning of the string.
+- **`format`**: Defines the format of the string, which can be uppercase (`uppercase`) or lowercase (`lowercase`).
+
+The types that receive properties inherited from the string are:
+
+import { Cards, Card } from "nextra/components";
+import { CaseSensitive, AtSign, User, Fingerprint, Map, Wand } from "lucide-react";
+
+<Cards>
+ <Card icon={<CaseSensitive />} title="Name" href="/types/name" />
+ <Card icon={<AtSign />} title="Email" href="/types/email" />
+ <Card icon={<User />} title="Username" href="/types/username" />
+ <Card icon={<Fingerprint />} title="UUID" href="/types/uuid" />
+ <Card icon={<Map />} title="Address" href="/types/address" />
+ <Card icon={<Wand />} title="Pattern" href="/types/pattern" />
+</Cards>

@@ -123,7 +123,7 @@ Utilize o método de atribuição que melhor se adequa às suas necessidades, se
 Abaixo estão listados todos os tipos de dados suportados pelo SchemaAPI para consulta. Utilize esta referência para configurar suas propriedades de acordo com as necessidades específicas do seu projeto.
 
 import { Cards, Card } from "nextra/components";
-import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand,  Dices, TableProperties, Braces, Brackets } from "lucide-react";
+import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand,  Dices, TableProperties } from "lucide-react";
 
 <Cards>
   <Card icon={<CaseSensitive />} title="Name" href="/types/name" />
@@ -135,17 +135,4 @@ import { CaseSensitive, Hash, AtSign, User, Fingerprint, Map, Wand,  Dices, Tabl
   <Card icon={<Wand />} title="Pattern" href="/types/pattern" />
   <Card icon={<Dices />} title="Options" href="/types/options" />
   <Card icon={<TableProperties />} title="Schema" href="/types/schema" />
-</Cards>
-
-## Propiedades Herdadas
-
-As propriedades herdadas referem-se às propriedades que são automaticamente atribuídas a um tipo baseado em sua definição ou comportamento padrão. Em essência, essas propriedades são inerentes ao tipo e são aplicadas independentemente de como ele é utilizado.
-
-Aqui está a lista das propriedades herdadas disponíveis:
-
-<Cards>
-  <Card icon={<CaseSensitive />} title="String" href="/inherited/string" />
-  <Card icon={<Hash />} title="Number" href="/inherited/number" />
-  <Card icon={<Braces />} title="Object" href="/inherited/object" />
-  <Card icon={<Brackets />} title="List" href="/inherited/list" />
 </Cards>
