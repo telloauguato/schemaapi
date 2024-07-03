@@ -1,0 +1,45 @@
+---
+title: UUID type
+description: UUID type structure
+---
+
+## Overview
+
+The `uuid` type is designed to generate universally unique identifier (UUID).
+
+<Tabs defaultValue="direct" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="direct">Direct</TabsTrigger>
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="direct">
+  ```json
+  {
+    "key": "uuid"
+  }
+  ```
+  </TabsContent>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "uuid"
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `uuid`. |

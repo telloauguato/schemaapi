@@ -1,0 +1,112 @@
+---
+title: All Types
+description: Global Schema and Types in SchemaAPI.
+---
+
+## Overview
+
+The Global Schema is the foundation of SchemaAPI. It defines the overall structure and rules for generating mock data.
+
+The types, in turn, are included in the content property. Type assignments are done by direct or embedded assignment. Respecting the rules and permissions of each type.
+
+## Global Schema
+
+The Global Scheme serves as a template that describes the various properties within your project.
+
+### Structure
+
+```json showLineNumbers
+{
+  "name": "schema name",
+  "description": "schema description",
+  "length": 1,
+  "lang": "en",
+  "seed": 9820,
+  "content": {}
+}
+```
+
+### Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `name`        | `string`  | The name of the schema               |
+| `description` | `string`  | A brief description of the schema    |
+| `length`      | `number`  | The length or size of the schema     |
+| `lang`        | `string`  | The language of the schema           |
+| `seed`        | `number`  | A seed value for generating mock data|
+| `content`     | `object`  | The main content of the schema       |
+
+
+
+## Types
+
+Types define what data will be returned after the request. The construction is crucial for the correct functioning of SchemaAPI. Some data has mandatory and optional properties, which can be yours or [inherited](#inherited-properties).
+
+### Assign
+
+They can be assigned directly or incorporated. Since all types can be assigned in an incorporated way, in direct form, it is restricted to types that do not have mandatory properties.
+
+#### Direct Assign
+
+You can direct assign a type to a property using the following syntax:
+
+```json
+{
+ "key": "<type>"
+}
+```
+
+Direct type assignment is limited to certain specific cases such as `name`, `number`, `username`, `address` and `uuid`. For types that require additional configuration, such as required property definitions, it is necessary to use incorporated assignment.
+
+#### Incorporated Assign
+
+You can assign a type with more properties using incorporated assignment, specifying additional properties if necessary using the following syntax:
+
+```json
+{
+  "key": {
+    "type": "<type>",
+    "<prop>": "<value>"
+  }
+}
+```
+
+Every incorporated assign must include the `type` attribute by default.
+
+### All Types
+
+Listed below are all data types supported by SchemaAPI for querying. Use this reference to configure its properties according to the specific needs of your project.
+
+- [**Address**](address): Returns a complete fictitious address, including street, city, state and zip code.
+- [**Email**](email): Returns a fictitious email address, such as "john.doe@example.com".
+- [**Name**](name): Returns a fictitious name, such as "John Doe" or "Alice Smith".
+- [**Number**](number): Returns a random number, such as 42 or 3.14.
+- [**Options**](options): Returns a value chosen randomly from a list of pre-defined options.
+- [**Pattern**](pattern): Returns data that matches a specific user-defined pattern.
+- [**Schema**](schema): Returns structured data based on a user-defined custom schema.
+- [**Username**](username): Returns a fictitious username, such as "johndoe123".
+- [**UUID**](uuid): Returns a universally unique identifier (UUID), such as "f47ac10b-58cc-4372-a567-0e02b2c3d479".
+
+These data types are used to configure properties in SchemaAPI, allowing the generation of dummy data tailored to the specific needs of your project.
+
+### Inherited Properties
+
+Inherited properties refer to properties that are automatically assigned to a type based on its default definition or behavior. In essence, these properties are inherent to the type and apply regardless of how it is used.
+
+#### String
+
+The **String Inherited Property** adds optional attributes to the type. These attributes are:
+
+- `suffix`
+- `prefix`
+- `format`
+
+#### Number
+
+The **Number Inherited Property** adds optional attributes to the type. These attributes are:
+
+- `decimail`
+- `max`
+- `min`
+- `bowl`

@@ -1,0 +1,50 @@
+---
+title: Address type
+description: Address type structure
+---
+
+## Overview
+
+The `uuid` type is designed to generate a complete fictitious address, including street, city, state and zip code.
+
+<Tabs defaultValue="direct" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="direct">Direct</TabsTrigger>
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="direct">
+  ```json
+  {
+    "key": "address"
+  }
+  ```
+  </TabsContent>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "address"
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": {
+    "street": "123 Main St",
+    "city": "Anytown",
+    "state": "CA",
+    "zipCode": "12345"
+  }
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `address`. |

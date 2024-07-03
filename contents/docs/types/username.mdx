@@ -1,0 +1,45 @@
+---
+title: Username type
+description: Username type structure
+---
+
+## Overview
+
+The `username` type is designed to generate realistic fictitious usernames.
+
+<Tabs defaultValue="direct" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="direct">Direct</TabsTrigger>
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="direct">
+  ```json
+  {
+    "key": "username"
+  }
+  ```
+  </TabsContent>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "username"
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": "john_doe.18"
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `username`. |

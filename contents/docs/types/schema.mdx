@@ -1,0 +1,51 @@
+---
+title: Schema type
+description: Schema type structure
+---
+
+## Overview
+
+The `schema` type is designed to create secondary schemas and returns them as objects, allowing the user to create more complex data hierarchies.
+
+<Tabs defaultValue="incorporated" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "schema",
+    "length": 2,
+    "schema": {
+        "name": "name",
+        "age": {
+            "type": "number",
+            "min": 18,
+            "max": 60
+        }
+    }
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": [
+    { "name": "Ares Simon", "age": 25 },
+    { "name": "John Doe", "age": 41 }
+  ]
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `schema`. |
+| `length`        | `number`  | Sets the default length when less than `0`. This is optional. |
+| `schema`        | `object`  | Defines the data types to be returned as a schema object. |

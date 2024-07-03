@@ -1,0 +1,52 @@
+---
+title: FAQ
+description: Frequently Asked Questions
+---
+
+## SchemaAPI FAQ
+
+### What is SchemaAPI?
+SchemaAPI is a tool that creates dummy data for prototyping and testing. It allows developers to quickly generate simulated data based on defined schemas.
+
+### How to install SchemaAPI?
+You can install SchemaAPI in your project by navigating to your project directory and running the following command:
+
+```bash
+npm i -D schemaapi@latest
+```
+
+### How to import SchemaAPI into my project?
+You can import SchemaAPI into your project with the following code:
+
+```javascript
+import schema from 'schemaapi';
+```
+
+### How do I create a schema and generate dummy data?
+To create a schema and generate dummy data, you must define your schema path and use the `Schema` function to generate the data. Here is an example:
+
+```javascript
+import schema from 'schemaapi';
+
+Schema('./user').then((mockData) => {
+ console.log(mockData);
+ // Use dummy data for prototyping and testing
+});
+```
+
+### What types of data can be generated with SchemaAPI?
+SchemaAPI can generate a wide variety of data types, including strings, numbers, data, booleans, and complex objects, based on the schema you define.
+
+### Can I customize the data generated?
+Yes, you can customize the generated data by setting specific properties in your schema. SchemaAPI allows you to specify patterns and expected values ​​for simulated data.
+
+### How to integrate SchemaAPI with other development tools?
+SchemaAPI can be easily integrated with other development tools and frameworks, such as Next.js, Express, or any other Node.js environment. You can use the generated dummy data for unit tests, integration tests or for popular applications during development.
+
+### Is SchemaAPI suitable for production?
+SchemaAPI is primarily designed for prototyping and testing. It is not recommended to use fictitious data generated in production environments.
+
+### Where can I find more information and documentation?
+You can find more information and the full SchemaAPI documentation on the official GitHub repository or on the SchemaAPI documentation website.
+
+By following these guidelines, you can make the most of SchemaAPI to generate mock data and speed up your development and testing. If you have additional questions or need further help, please feel free to consult the documentation or contact support.

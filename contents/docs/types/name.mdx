@@ -1,0 +1,48 @@
+---
+title: Name type
+description: Name type structure
+---
+
+## Overview
+
+The `name` type is designed to generate realistic fictitious names, useful in development and testing scenarios where personally identifiable data is required but should not correspond to real individuals.
+
+<Tabs defaultValue="direct" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="direct">Direct</TabsTrigger>
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="direct">
+  ```json
+  {
+    "key": "name"
+  }
+  ```
+  </TabsContent>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "name"
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": "John Doe"
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `name`. |
+| `join` | `boolean`  | Defines whether the result should be returned as a string (`true`) or object (`false`). The default value is `true`.    |
+
+When using attributes from [Inherited Property String](/docs/types/all-types#string) and the `join` attribute is set to `true`, these attributes are returned within the body of the return object.

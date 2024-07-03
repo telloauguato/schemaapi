@@ -1,0 +1,80 @@
+---
+title: Introduction
+description: Introduction to SchemaAPI.
+---
+
+Hello and welcome to the documentation for SchemaAPI, a powerful and versatile tool designed to generate mock data for prototype systems. SchemaAPI allows developers to create realistic, personalized data to test and validate their applications during development.
+
+## Overview
+
+SchemaAPI is a tool that allows you to define and manage data schemas for your applications. It provides a way to create simulated data based on these schemas, which can be useful for testing, prototyping, and application development.
+
+- **Custom Data Generation**:  Define custom schemas to generate data that meets your specific needs.
+- **Multiple Data Types Support**: Generation of a wide variety of data types, including names, addresses, numbers, dates and more.
+- **Simple and Intuitive API**: Easy-to-use RESTful interface, facilitating integration with any application.
+- **Flexible Configuration**: Adjust parameters and data patterns as needed.
+
+## Use case
+
+Imagine you are developing a new customer management application and need realistic data to test the system. With SchemaAPI, you can define a schema to generate customer names, addresses, phone numbers, and even order and transaction information. This allows you to validate your application's functionality and identify issues before going to production.
+
+## Quick Example
+
+Here is a simple example of how to use SchemaAPI to generate dummy user data:
+
+<Tabs defaultValue="schema" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="schema">index.ts</TabsTrigger>
+    <TabsTrigger value="file">user.schema.json</TabsTrigger>
+  </TabsList>
+  <TabsContent value="schema">
+  ```jsx showLineNumbers
+import Schema from "schemaapi"
+
+Schema({
+    name: "SchemaAPI",
+    description: "My first schema",
+    length: 1,
+    seed: 9820,
+    info: false,
+    version: 1,
+    content: {
+      name: "name",
+      email: {
+        type: "email",
+        domain: "schema.api"
+      }
+    }
+}).then(data => console.log(data))
+
+// or file 
+
+Schema("./user").then(data => console.log(data))
+```
+  </TabsContent>
+  <TabsContent value="file">
+```json
+{
+  "name": "SchemaAPI",
+  "description": "My first schema",
+  "length": 1,
+  "seed": 9820,
+  "info": false,
+  "version": 1,
+  "content": {
+    "name": "name",
+    "email": {
+      "type": "email",
+      "domain": "schema.api"
+    }
+  }
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Conclusion
+
+With these simple steps, you can generate custom dummy data to use in your testing and development. SchemaAPI makes it easy to create realistic data, allowing you to focus on developing features and improving the quality of your software.
+
+Feel free to explore the other resources in this documentation to get the most out of SchemaAPI.

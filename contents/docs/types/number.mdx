@@ -1,0 +1,45 @@
+---
+title: Number type
+description: Number type structure
+---
+
+## Overview
+
+The `number` type is designed to represent numeric values, useful in various data modeling scenarios.
+
+<Tabs defaultValue="direct" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="direct">Direct</TabsTrigger>
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="direct">
+  ```json
+  {
+    "key": "number"
+  }
+  ```
+  </TabsContent>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "number"
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": 254
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `number`. |

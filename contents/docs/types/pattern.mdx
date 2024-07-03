@@ -1,0 +1,46 @@
+---
+title: Pattern type
+description: Pattern type structure
+---
+
+## Overview
+
+The `pattern` type is designed to create data that matches a specific user-defined pattern.
+
+<Tabs defaultValue="incorporated" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "pattern",
+    "pattern": "AAABBBC-DD",
+    "define": {
+        "A": "numeric",
+        "B": "alphabetic",
+        "C": "alphanumeric",
+        "D": "numeric"
+    }
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": "454AYT4-##"
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `pattern`. |
+| `pattern`        | `string`  | Write characters that represent the substitutions that will be made using the `define` property. |
+| `define`        | `object`  | Using `key-value` to define the key as the character to be replaced and value the type of data to be replaced. The value can be `numeric`, `alphabetic`, `alphanumeric` and `symbol` |

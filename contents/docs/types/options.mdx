@@ -1,0 +1,41 @@
+---
+title: Options type
+description: Options type structure
+---
+
+## Overview
+
+The `options` type returns one or more values, depending on the number of options passed to it, as specified by the `length` property.
+
+<Tabs defaultValue="incorporated" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "options",
+    "length": 1,
+    "options": ["admin", "user", "anonymous"]
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": "admin"
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `options`. |
+| `length`        | `number`  | Sets the default length when less than `0`. This is optional. |
+| `options`        | `array`  | Defines the data to be randomly drawn to be returned as an array if the `length` is greater than 1, otherwise it returns the drawn value. |

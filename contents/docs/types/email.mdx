@@ -1,0 +1,39 @@
+---
+title: Email type
+description: Email type structure
+---
+
+## Overview
+
+The `email` type is designed to represent valid email addresses. It is useful in scenarios where it is necessary to store or manipulate contact data, ensuring that the values ​​entered follow the standard email address format.
+
+<Tabs defaultValue="incorporated" className="pt-5 pb-1">
+  <TabsList className="">
+    <TabsTrigger value="incorporated">Incorporated</TabsTrigger>
+    <TabsTrigger value="output">Output</TabsTrigger>
+  </TabsList>
+  <TabsContent value="incorporated">
+```json
+{
+  "key": {
+    "type": "email",
+    "domain": "schema.api"
+  }
+}
+```
+  </TabsContent>
+  <TabsContent value="output">
+```json
+{
+  "key": "john.doe@schema.api"
+}
+```
+  </TabsContent>
+</Tabs>
+
+## Parameters
+
+| Name          | Type      | Description                          |
+|---------------|-----------|--------------------------------------|
+| `type`        | `string`  | Type of data that will be returned. Must be assigned as `email`. |
+| `domain`        | `string`  | Write a domain to be the dummy domain of the data or an array of domains. |

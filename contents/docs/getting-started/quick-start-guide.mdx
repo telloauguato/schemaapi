@@ -1,0 +1,42 @@
+---
+title: Quick Start Guide
+description: SchemaAPI Quick Start Guide.
+---
+
+To get started using SchemaAPI, follow these simple steps:
+
+## Prerequisites
+
+Before installing SchemaAPI, make sure you have the following:
+
+- Node.js installed on your machine
+
+## Installation Steps
+
+1. **Install SchemaAPI**: Navigate to your project directory and install SchemaAPI.
+
+   ```bash
+   npm i -D schemaapi@latest
+   ```
+
+2. **Import the Schema**: In your project files, import Schema from SchemaAPI.
+
+   ```tsx showLineNumbers
+   import Schema form "schemaapi";
+   ```
+
+3. **Build your schema**: Create your schema.
+
+   ```tsx {3} showLineNumbers
+   import Schema form "schemaapi";
+   
+   Schema('./user').then((mockData) => {
+      console.log(mockData);
+   })
+   ```
+
+4. **Yeah!! 🥳**: By following these steps, you'll have SchemaAPI installed and ready to use in your project.
+
+## Additional Information
+
+For more detailed instructions and troubleshooting tips, see our [All Types](/docs/types/all-types) section.
