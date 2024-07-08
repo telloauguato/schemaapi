@@ -1,4 +1,4 @@
-export default function DocsLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;

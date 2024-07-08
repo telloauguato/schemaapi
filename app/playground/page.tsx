@@ -7,14 +7,12 @@ type PageProps = {
 
 
 export default async function Page({ params: { slug = [] } }: PageProps) {
-  const pathName = slug.join("/");
 
   return (
     <div className="flex items-start gap-12 ">
       <div className="flex-[3] py-10 ">
         <DocsBreadcrumb paths={slug} />
       </div>
-      <Toc path={pathName} />
     </div>
   );
 }
