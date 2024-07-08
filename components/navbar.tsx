@@ -5,7 +5,7 @@ import { buttonVariants } from "./ui/button";
 import Search from "./search";
 import Anchor from "./anchor";
 import { SheetLeftbar } from "./leftbar";
-import { page_routes } from "@/lib/routes-config";
+import { models_router, page_routes } from "@/lib/routes-config";
 
 export const NAVLINKS = [
   {
@@ -14,7 +14,7 @@ export const NAVLINKS = [
   },
   {
     title: "Models",
-    href: `/docs/${page_routes[2].href}`,
+    href: `/docs/${models_router[0].href}`,
   }
 ];
 

@@ -1,5 +1,5 @@
 import { buttonVariants } from "@/components/ui/button";
-import { page_routes } from "@/lib/routes-config";
+import { models_router, page_routes } from "@/lib/routes-config";
 import { MoveUpRightIcon, TerminalIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -28,7 +28,7 @@ export default function Home() {
           Get Stared
         </Link>
         <Link
-          href={`/docs/${page_routes[2].href}`}
+          href={`/docs/${models_router[0].href}`}
           className={buttonVariants({
             variant: "outline",
             className: "px-6",

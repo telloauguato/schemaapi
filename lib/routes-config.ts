@@ -35,7 +35,26 @@ export const ROUTES = [
   }
 ]
 
+export const MODELS = [
+  {
+    title: "Models",
+    href: "models",
+    items: [
+      { title: "User", href: "/user" },
+    ],
+  }
+]
+
 export const page_routes = ROUTES.map(({ href, items }) => {
+  return items.map((link) => {
+    return {
+      title: link.title,
+      href: href + link.href,
+    };
+  });
+}).flat();
+
+export const models_router = MODELS.map(({ href, items }) => {
   return items.map((link) => {
     return {
       title: link.title,
