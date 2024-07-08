@@ -4,48 +4,37 @@ description: User Schema Data.
 ---
 
 
-### Use Case
+### Typescript
 
-<Tabs defaultValue="Typescript" className="pt-5 pb-1">
-  <TabsList className="">
-    <TabsTrigger value="Typescript">Typescript</TabsTrigger>
-    <TabsTrigger value="file">Schema File (user.schema.json)</TabsTrigger>
-    <TabsTrigger value="output">Output</TabsTrigger>
-  </TabsList>
-  <TabsContent value="Typescript">
-  ```typescript showLineNumbers
-  {
-    "name": "schema name",
-    "description": "schema description",
-    "length": 1,
-    "lang": "en",
-    "seed": 9820,
-    "content": {}
-  }
-  ```
-  </TabsContent>
-  <TabsContent value="file">
-  ```json showLineNumbers
-  {
-    "name": "schema name",
-    "description": "schema description",
-    "length": 1,
-    "lang": "en",
-    "seed": 9820,
-    "content": {}
-  }
-  ```
-  </TabsContent>
-  <TabsContent value="output">
-  ```json showLineNumbers
-  {
-    "name": "schema name",
-    "description": "schema description",
-    "length": 1,
-    "lang": "en",
-    "seed": 9820,
-    "content": {}
-  }
-  ```
-  </TabsContent>
-</Tabs>
+```typescript showLineNumbers
+import Schema from "schemaapi"
+
+Schema({
+  name: "schema name",
+  description: "schema description",
+  length: 1,
+  lang: "en",
+  seed: 9820,
+  content: {}
+}).then(data => console.log(data))
+```
+
+### Schema file `user.schema.json`
+
+```json showLineNumbers
+{
+  "name": "schema name",
+  "description": "schema description",
+  "length": 1,
+  "lang": "en",
+  "seed": 9820,
+  "content": {}
+}
+```
+
+```typescript showLineNumbers
+import Schema from "schemaapi"
+import modelUser form "./user.schema.json"
+
+Schema(modelUser).then(data => console.log(data))
+```
