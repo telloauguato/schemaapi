@@ -8,13 +8,10 @@ type PageProps = {
   params: { slug: string[] };
 };
 
-const cachedGetMarkdownForSlug = cache(getMarkdownForSlug);
 
-export default async function DocsPage({ params: { slug = [] } }: PageProps) {
+export default async function Page({ params: { slug = [] } }: PageProps) {
   const pathName = slug.join("/");
-  const res = await cachedGetMarkdownForSlug(pathName);
-
-  if (!res) notFound();
+  
   return (
     <div className="flex items-start gap-12 ">
       <div className="flex-[3] py-10 ">
