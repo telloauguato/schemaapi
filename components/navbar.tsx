@@ -13,8 +13,8 @@ export const NAVLINKS = [
     href: `/docs/${page_routes[0].href}`,
   },
   {
-    title: "Models",
-    href: `/models/${page_routes[2].href}`,
+    title: "Playground",
+    href: `/playground`,
   },
 ];
 
