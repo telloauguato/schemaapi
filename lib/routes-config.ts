@@ -25,13 +25,6 @@ export const ROUTES = [
       { title: "Username", href: "/username" },
       { title: "UUID", href: "/uuid" },
     ],
-  },
-  {
-    title: "Models",
-    href: "models",
-    items: [
-      { title: "User", href: "/user" }
-    ]
   }
 ]
 
