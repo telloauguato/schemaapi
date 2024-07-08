@@ -14,7 +14,7 @@ export const NAVLINKS = [
   },
   {
     title: "Models",
-    href: `/models/${page_routes[0].href}`,
+    href: `/models/${page_routes[2].href}`,
   },
 ];
 

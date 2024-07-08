@@ -26,7 +26,14 @@ export const ROUTES = [
       { title: "UUID", href: "/uuid" },
     ],
   },
-];
+  {
+    title: "Models",
+    href: "models",
+    items: [
+      { title: "User", href: "/user" }
+    ]
+  }
+]
 
 export const page_routes = ROUTES.map(({ href, items }) => {
   return items.map((link) => {
