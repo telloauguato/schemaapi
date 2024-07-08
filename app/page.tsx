@@ -35,11 +35,11 @@ export default function Home() {
             size: "lg",
           })}
         >
-          Customize
+          Models
         </Link>
       </div>
       <span className="flex flex-row items-center gap-2 text-zinc-400 text-md mt-7 -mb-12 max-[800px]:mb-12">
-        <TerminalIcon className="w-4 h-4 mr-1" /> ~ npx install -D schemaapi@latest
+        <TerminalIcon className="w-4 h-4 mr-1" /> ~ npm install -D schemaapi@latest
       </span>
     </div>
   );

@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/theme-toggle";
-import { GithubIcon, TwitterIcon, ParenthesesIcon } from "lucide-react";
+import { GithubIcon } from "lucide-react";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import Search from "./search";
@@ -11,6 +11,10 @@ export const NAVLINKS = [
   {
     title: "Documentation",
     href: `/docs/${page_routes[0].href}`,
+  },
+  {
+    title: "Models",
+    href: `/models/${page_routes[0].href}`,
   },
 ];
 
