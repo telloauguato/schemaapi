@@ -13,9 +13,9 @@ export const NAVLINKS = [
     href: `/docs/${page_routes[0].href}`,
   },
   {
-    title: "Playground",
-    href: `/playground`,
-  },
+    title: "Models",
+    href: `/docs/${page_routes[2].href}`,
+  }
 ];
 
 export function Navbar() {

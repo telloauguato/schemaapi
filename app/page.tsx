@@ -28,7 +28,7 @@ export default function Home() {
           Get Stared
         </Link>
         <Link
-          href="docs/models"
+          href={`/docs/${page_routes[2].href}`}
           className={buttonVariants({
             variant: "outline",
             className: "px-6",
